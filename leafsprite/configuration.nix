@@ -15,8 +15,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-326b13f9-6b2b-4b44-a9e2-6de79c4e981e".device = "/dev/disk/by-uuid/326b13f9-6b2b-4b44-a9e2-6de79c4e981e";
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -28,7 +26,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "leafsprite";
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
