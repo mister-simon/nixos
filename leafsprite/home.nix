@@ -23,9 +23,16 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      gaa = "git add -A";
-      gc = "git commit -m";
+
       gs = "git status";
+      gd = "git diff";
+      gc = "git commit -m";
+      gam = "git commit --amend --no-edit";
+      game = "git commit --amend";
+      gaa = "git add -A";
+      ga = "git add .";
+      gp = "git push";
+
       nrs = "sudo nixos-rebuild switch --flake ~/nixos/#leafsprite";
     };
     initExtra = ''
