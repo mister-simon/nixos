@@ -26,7 +26,7 @@
       gaa = "git add -A";
       gc = "git commit -m";
       gs = "git status";
-      nrs = "sudo nixos-rebuild switch --flake .#leafsprite";
+      nrs = "sudo nixos-rebuild switch --flake ~/nixos/#leafsprite";
     };
     initExtra = ''
       # ~/.bashrc: executed by bash(1) for non-login shells.
