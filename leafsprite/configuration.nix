@@ -16,10 +16,20 @@
 
   boot.initrd.luks.devices."luks-326b13f9-6b2b-4b44-a9e2-6de79c4e981e".device = "/dev/disk/by-uuid/326b13f9-6b2b-4b44-a9e2-6de79c4e981e";
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+
+    auto-optimise-store = true;
+
+    min-free = 128000000;
+    max-free = 1000000000;
+
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    warn-dirty = false;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -98,6 +108,13 @@
     packages = with pkgs; [
       #  thunderbird
     ];
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 20d --keep 20";
+    flake = "/simon/nixos";
   };
 
   # Install firefox.
