@@ -23,9 +23,10 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      gaa = "git add -a";
+      gaa = "git add -A";
       gc = "git commit -m";
       gs = "git status";
+      nrs = "sudo nixos-rebuild switch --flake .#leafsprite";
     };
     initExtra = ''
       # ~/.bashrc: executed by bash(1) for non-login shells.
