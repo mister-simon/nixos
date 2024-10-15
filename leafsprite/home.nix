@@ -91,8 +91,6 @@
             PS1='\A ''${debian_chroot:+($debian_chroot)} \w$(__git_ps1 " (%s)")\$ '
         fi
       fi
-      
-      unset color_prompt force_color_prompt
 
       unset color_prompt force_color_prompt
 
