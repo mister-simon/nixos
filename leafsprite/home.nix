@@ -16,6 +16,60 @@
   # changes in each release.
   home.stateVersion = "24.05";
 
+  # Configure dconf / gnome extensions
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = [
+          pkgs.gnomeExtensions.blur-my-shell.extensionUuid
+          pkgs.gnomeExtensions.pop-shell.extensionUuid
+        ];
+      };
+
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+
+      "org/gnome/shell/extensions/pop-shell" = {
+        tile-by-default = true;
+        active-hint = true;
+        show-title = false;
+        gap-outer = 0;
+        mouse-cursor-follows-active-window = false;
+      };
+
+      "org/gnome/desktop/wm/keybindings" = {
+        # Unbind cosmic things
+        focus-active-notification = [ ];
+        toggle-message-tray = [ ];
+        unmaximise = [ ];
+        maximise = [ ];
+        move-to-monitor-left = [ ];
+        move-to-monitor-down = [ ];
+        move-to-monitor-up = [ ];
+        move-to-monitor-right = [ ];
+        switch-to-application-1 = [ ];
+        switch-to-application-2 = [ ];
+        switch-to-application-3 = [ ];
+        switch-to-application-4 = [ ];
+
+        # New binds
+        move-to-workspace-1 = [ "<Shift><Super><Home>" ];
+        move-to-workspace-last = [ "<Shift><Super><End>" ];
+        switch-to-workspace-1 = [ "<Super>1" ];
+        switch-to-workspace-2 = [ "<Super>2" ];
+        switch-to-workspace-3 = [ "<Super>3" ];
+        switch-to-workspace-4 = [ "<Super>4" ];
+      };
+
+      "org/gnome/desktop/interface" = {
+        clock-show-weekday = true;
+      };
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

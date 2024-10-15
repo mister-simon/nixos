@@ -1,3 +1,6 @@
+# Note to self ... Some repos to draw inspiration from:
+# https://gitlab.com/engmark/root/-/blob/master/configuration.nix
+# https://github.com/EmergentMind/nix-config
 {
   description = "Simon's Very Good NixOS Flake.";
 

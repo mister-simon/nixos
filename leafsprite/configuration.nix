@@ -134,14 +134,21 @@
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
+    # CLI
     git
     gh
     vim
     wget
     curl
     bat
+
+    # Nix
     nixfmt-rfc-style
     nil
+
+    # Gnome
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.pop-shell
   ];
 
   environment.variables.EDITOR = "vim";
