@@ -40,6 +40,17 @@
 
       "org/gnome/desktop/screensaver" = {
         picture-options = "spanned";
+        picture-uri = "file://${./leafsprite-wide-bg.png}";
+        primary-color = "#000000000000";
+        secondary-color = "#000000000000";
+      };
+
+      "org/gnome/desktop/background" = {
+        picture-options = "spanned";
+        picture-uri = "file://${./leafsprite-wide-bg.png}";
+        picture-uri-dark = "file://${./leafsprite-wide-bg.png}";
+        primary-color = "#000000000000";
+        secondary-color = "#000000000000";
       };
 
       "org/gnome/shell/extensions/pop-shell" = {
@@ -73,6 +84,7 @@
       "org/gnome/desktop/wm/keybindings" = {
         # General window actions
         close = [ "<Super>q" ];
+        toggle-maximized = [ "<Super>m" ];
         maximize = [ ];
         minimize = [ ];
 
