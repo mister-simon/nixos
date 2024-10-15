@@ -113,6 +113,12 @@
     ];
   };
 
+  # Autologin
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "simon";
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
   programs.nh = {
     enable = true;
     clean.enable = true;
