@@ -111,9 +111,6 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
   };
 
   programs.nh = {
@@ -130,7 +127,6 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
     gh
@@ -138,6 +134,8 @@
     wget
     curl
     bat
+    nixfmt-rfc-style
+    nil
   ];
 
   environment.variables.EDITOR = "vim";
