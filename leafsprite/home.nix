@@ -82,16 +82,17 @@
 
       export PROMPT_DIRTRIM=3
 
-      if [ -f ~/.nix-profile/share/git/contrib/completion/git-prompt.sh ]; then
-        source ~/.nix-profile/share/git/contrib/completion/git-prompt.sh
+      if [ -f ${pkgs.git}/share/bash-completion/completions/git-prompt.sh ]; then
+        source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
 
         if [ "$color_prompt" = yes ]; then
             PS1='\[\033[38;5;239m\]\A\[$(tput sgr0)\] ''${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[00m\]\033[0;32m$(__git_ps1 " (%s)")\033[0m\$ '
         else
             PS1='\A ''${debian_chroot:+($debian_chroot)} \w$(__git_ps1 " (%s)")\$ '
         fi
-        unset color_prompt force_color_prompt
       fi
+      
+      unset color_prompt force_color_prompt
 
       # If this is an xterm set the title to user@host:dir
       case "$TERM" in
