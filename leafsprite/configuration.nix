@@ -149,6 +149,7 @@
     # Gnome
     gnomeExtensions.blur-my-shell
     gnomeExtensions.pop-shell
+    dconf-editor
   ];
 
   environment.variables.EDITOR = "vim";
