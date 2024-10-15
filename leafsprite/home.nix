@@ -31,6 +31,11 @@
     options = [ "--cmd cd" ];
   };
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [ ];
+  };
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
