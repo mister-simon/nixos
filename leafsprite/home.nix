@@ -167,6 +167,7 @@
     initExtra = ''
       git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"
       ${builtins.readFile ./bash-init-extra.sh}
+      unset git_prompt
     '';
   };
 }
