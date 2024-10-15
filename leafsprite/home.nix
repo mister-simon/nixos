@@ -21,6 +21,7 @@
   home.stateVersion = "24.05";
 
   # Configure dconf / gnome extensions
+  # use `dconf watch /`
   dconf = {
     enable = true;
     settings = {
