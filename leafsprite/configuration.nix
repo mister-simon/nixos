@@ -196,6 +196,18 @@
     google-chrome
   ];
 
+  fonts = {
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "FiraCode" ];
+      };
+    };
+  };
+
   environment.variables.EDITOR = "vim";
 
   # Some programs need SUID wrappers, can be configured further or are
