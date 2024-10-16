@@ -31,12 +31,17 @@
         enabled-extensions = [
           pkgs.gnomeExtensions.blur-my-shell.extensionUuid
           pkgs.gnomeExtensions.pop-shell.extensionUuid
+          pkgs.gnomeExtensions.dash-to-dock.extensionUuid
+          pkgs.gnomeExtensions.caffeine.extensionUuid
+          pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
+          pkgs.gnomeExtensions.hibernate-status-button.extensionUuid
         ];
         favorite-apps = [ ];
       };
 
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
+        gtk-enable-primary-paste = false;
       };
 
       "org/gnome/desktop/screensaver" = {
@@ -58,8 +63,22 @@
         tile-by-default = true;
         active-hint = true;
         show-title = false;
-        gap-outer = 0;
+        gap-outer = lib.hm.gvariant.mkUint32 0;
+        gap-inner = lib.hm.gvariant.mkUint32 0;
         mouse-cursor-follows-active-window = false;
+      };
+
+      "org/gnome/shell/extensions/clipboard-indicator" = {
+        display-mode = 1;
+      };
+
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        multi-monitor = true;
+        show-trash = false;
+        show-mounts = false;
+        hot-keys = false;
+        running-indicator-style = "DOTS";
+        dash-max-icon-size = 60;
       };
 
       "org/gnome/mutter/keybindings" = {

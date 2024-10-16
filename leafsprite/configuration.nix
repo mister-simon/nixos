@@ -10,6 +10,9 @@
     ./hardware-configuration.nix
   ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -129,9 +132,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     # CLI
@@ -149,6 +149,10 @@
     # Gnome
     gnomeExtensions.blur-my-shell
     gnomeExtensions.pop-shell
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.caffeine
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.hibernate-status-button
     dconf-editor
   ];
 
