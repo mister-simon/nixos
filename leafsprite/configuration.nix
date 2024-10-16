@@ -4,6 +4,7 @@
 
 {
   pkgs,
+  pkgs-stable,
   ...
 }:
 
@@ -12,9 +13,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -148,53 +146,56 @@
 
   programs.nix-ld.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    # CLI
-    git
-    gh
-    vim
-    wget
-    curl
-    bat
-    fnm
+  environment.systemPackages =
+    (with pkgs; [
+      # CLI
+      git
+      gh
+      vim
+      wget
+      curl
+      bat
+      fnm
 
-    # PHP
-    php83
-    php83Packages.composer
-    php83Extensions.ctype
-    php83Extensions.curl
-    php83Extensions.dom
-    php83Extensions.fileinfo
-    php83Extensions.filter
-    # php83Extensions.hash # Couldn't find this one in package search...
-    php83Extensions.mbstring
-    php83Extensions.openssl
-    # php83Extensions.pcre # Couldn't find this one either...
-    php83Extensions.pdo
-    php83Extensions.session
-    php83Extensions.tokenizer
-    php83Extensions.xml
+      # PHP
+      php83
+      php83Packages.composer
+      php83Extensions.ctype
+      php83Extensions.curl
+      php83Extensions.dom
+      php83Extensions.fileinfo
+      php83Extensions.filter
+      # php83Extensions.hash # Couldn't find this one in package search...
+      php83Extensions.mbstring
+      php83Extensions.openssl
+      # php83Extensions.pcre # Couldn't find this one either...
+      php83Extensions.pdo
+      php83Extensions.session
+      php83Extensions.tokenizer
+      php83Extensions.xml
 
-    # Nix
-    nixfmt-rfc-style
-    nil
+      # Nix
+      nixfmt-rfc-style
+      nil
 
-    # Gnome
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.pop-shell
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.caffeine
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.hibernate-status-button
-    dconf-editor
+      # Gnome
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.pop-shell
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.caffeine
+      gnomeExtensions.clipboard-indicator
+      gnomeExtensions.hibernate-status-button
+      dconf-editor
 
-    # Work
-    virtualbox
-    vagrant
+      # Work
+      virtualbox
 
-    # Other
-    google-chrome
-  ];
+      # Other
+      google-chrome
+    ])
+    ++ (with pkgs-stable; [
+      vagrant
+    ]);
 
   fonts = {
     packages = with pkgs; [

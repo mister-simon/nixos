@@ -14,27 +14,37 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixos-hardware.url = "github:NixOS/nixos-hardware";
-    # php.url = "github:loophp/php-src-nix";
+    # php.url = "github:loophp/php-src-nix";      
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs-stable = import nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
       nixosConfigurations = {
         leafsprite = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs;
           inherit system;
           specialArgs = {
+            inherit pkgs-stable;
             inherit inputs;
           };
           modules = [
