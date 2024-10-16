@@ -22,6 +22,17 @@
 
   boot.initrd.luks.devices."luks-326b13f9-6b2b-4b44-a9e2-6de79c4e981e".device = "/dev/disk/by-uuid/326b13f9-6b2b-4b44-a9e2-6de79c4e981e";
 
+  boot.supportedFilesystems = [
+    "ntfs"
+    "exfat"
+    "vfat"
+    "btrfs"
+    "reiserfs"
+    "f2fs"
+    "xfs"
+    "cifs"
+  ];
+
   nix.settings = {
     auto-optimise-store = true;
 
