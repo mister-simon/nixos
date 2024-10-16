@@ -128,6 +128,13 @@
     ];
   };
 
+  # Virtualbox things and stuff
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "simon" ];
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.guest.clipboard = true;
+
   # Autologin
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "simon";
@@ -186,9 +193,6 @@
       gnomeExtensions.clipboard-indicator
       gnomeExtensions.hibernate-status-button
       dconf-editor
-
-      # Work
-      virtualbox
 
       # Other
       google-chrome
