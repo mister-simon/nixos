@@ -146,6 +146,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages = with pkgs; [
     # CLI
     git
@@ -154,6 +156,7 @@
     wget
     curl
     bat
+    fnm
 
     # PHP
     php83

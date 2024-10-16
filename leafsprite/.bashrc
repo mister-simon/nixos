@@ -44,3 +44,7 @@ esac
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+if [ -f "$fnm_bin" ]; then
+    eval "$($fnm_bin env --use-on-cd --shell bash)"
+fi

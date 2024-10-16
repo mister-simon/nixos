@@ -185,8 +185,9 @@
     };
     initExtra = ''
       git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"
+      fnm_bin="${pkgs.fnm}/bin/fnm"
       ${builtins.readFile ./.bashrc}
-      unset git_prompt
+      unset git_prompt fnm_bin
     '';
   };
 }
