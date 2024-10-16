@@ -2,7 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -132,7 +135,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     # CLI
     git
@@ -141,6 +143,23 @@
     wget
     curl
     bat
+
+    # PHP
+    php83
+    php83Packages.composer
+    php83Extensions.ctype
+    php83Extensions.curl
+    php83Extensions.dom
+    php83Extensions.fileinfo
+    php83Extensions.filter
+    # php83Extensions.hash # Couldn't find this one in package search...
+    php83Extensions.mbstring
+    php83Extensions.openssl
+    # php83Extensions.pcre # Couldn't find this one either...
+    php83Extensions.pdo
+    php83Extensions.session
+    php83Extensions.tokenizer
+    php83Extensions.xml
 
     # Nix
     nixfmt-rfc-style
