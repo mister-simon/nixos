@@ -154,6 +154,10 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.hibernate-status-button
     dconf-editor
+
+    # Work
+    virtualbox
+    vagrant
   ];
 
   environment.variables.EDITOR = "vim";
