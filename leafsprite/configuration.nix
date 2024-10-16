@@ -177,6 +177,9 @@
     # Work
     virtualbox
     vagrant
+
+    # Other
+    google-chrome
   ];
 
   environment.variables.EDITOR = "vim";
