@@ -1,8 +1,15 @@
-# Note to self ... Some repos to draw inspiration from:
-# https://gitlab.com/engmark/root
-# https://github.com/EmergentMind/nix-config
-# https://github.com/librephoenix/nixos-config
-# https://github.com/LongerHV/nixos-configuration
+/*
+  Note to self ... Some repos to draw inspiration from:
+   - https://gitlab.com/engmark/root
+   - https://github.com/EmergentMind/nix-config
+   - https://github.com/librephoenix/nixos-config
+   - https://github.com/LongerHV/nixos-configuration
+
+   More stuff to check out...
+
+   - https://nixos-and-flakes.thiscute.world/
+   - https://codeberg.org/justgivemeaname/.dotfiles
+*/
 {
   description = "Simon's Very Good NixOS Flake.";
 

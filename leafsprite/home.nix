@@ -46,15 +46,15 @@
 
       "org/gnome/desktop/screensaver" = {
         picture-options = "spanned";
-        picture-uri = "file://${./leafsprite-wide-bg.png}";
+        picture-uri = "file://${./sources/leafsprite-wide-bg.png}";
         primary-color = "#000000000000";
         secondary-color = "#000000000000";
       };
 
       "org/gnome/desktop/background" = {
         picture-options = "spanned";
-        picture-uri = "file://${./leafsprite-wide-bg.png}";
-        picture-uri-dark = "file://${./leafsprite-wide-bg.png}";
+        picture-uri = "file://${./sources/leafsprite-wide-bg.png}";
+        picture-uri-dark = "file://${./sources/leafsprite-wide-bg.png}";
         primary-color = "#000000000000";
         secondary-color = "#000000000000";
       };
@@ -168,25 +168,18 @@
     # Manage extensions with vscode sync 🤷
   };
 
+  home.file.".bash_aliases".source = ./sources/.bash_aliases;
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      gs = "git status";
-      gd = "git diff";
-      gc = "git commit -m";
-      gam = "git commit --amend --no-edit";
-      game = "git commit --amend";
-      gaa = "git add -A";
-      ga = "git add .";
-      gp = "git push";
-
       nrs = "sudo nixos-rebuild switch --flake ~/nixos/#leafsprite";
     };
     initExtra = ''
       git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"
       fnm_bin="${pkgs.fnm}/bin/fnm"
-      ${builtins.readFile ./.bashrc}
+      ${builtins.readFile ./sources/.bashrc}
       unset git_prompt fnm_bin
     '';
   };
