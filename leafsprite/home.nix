@@ -26,6 +26,10 @@
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/settings-daemon/plugins/power" = {
+        power-button-action = "hibernate";
+      };
+
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
