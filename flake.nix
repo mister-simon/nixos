@@ -1,5 +1,6 @@
 /*
   Note to self ... Some repos to draw inspiration from:
+
    - https://gitlab.com/engmark/root
    - https://github.com/EmergentMind/nix-config
    - https://github.com/librephoenix/nixos-config

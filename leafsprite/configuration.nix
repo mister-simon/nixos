@@ -15,22 +15,35 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    # Set up the loader
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-326b13f9-6b2b-4b44-a9e2-6de79c4e981e".device = "/dev/disk/by-uuid/326b13f9-6b2b-4b44-a9e2-6de79c4e981e";
+    # Point out the encrypted drive
+    initrd.luks.devices."luks-326b13f9-6b2b-4b44-a9e2-6de79c4e981e".device = "/dev/disk/by-uuid/326b13f9-6b2b-4b44-a9e2-6de79c4e981e";
 
-  boot.supportedFilesystems = [
-    "ntfs"
-    "exfat"
-    "vfat"
-    "btrfs"
-    "reiserfs"
-    "f2fs"
-    "xfs"
-    "cifs"
-  ];
+    # Make the loader quieter
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+    ];
 
+    # We should be able to read whatever fs we like...
+    supportedFilesystems = [
+      "ntfs"
+      "exfat"
+      "vfat"
+      "btrfs"
+      "reiserfs"
+      "f2fs"
+      "xfs"
+      "cifs"
+    ];
+  };
+
+  # Sundry settings for successful system storage
   nix.settings = {
     auto-optimise-store = true;
 
@@ -45,9 +58,13 @@
     warn-dirty = false;
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Clean yoself
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 20d --keep 20";
+    flake = "/simon/nixos";
+  };
 
   # Enable networking
   networking = {
@@ -59,38 +76,35 @@
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_GB.UTF-8";
+      LC_IDENTIFICATION = "en_GB.UTF-8";
+      LC_MEASUREMENT = "en_GB.UTF-8";
+      LC_MONETARY = "en_GB.UTF-8";
+      LC_NAME = "en_GB.UTF-8";
+      LC_NUMERIC = "en_GB.UTF-8";
+      LC_PAPER = "en_GB.UTF-8";
+      LC_TELEPHONE = "en_GB.UTF-8";
+      LC_TIME = "en_GB.UTF-8";
+    };
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
 
-  # Configure Gnome
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    epiphany
-    geary
-  ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "gb";
-    variant = "";
+    # Configure keymap in X11
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
   };
 
   # Configure console keymap
@@ -107,16 +121,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.simon = {
@@ -129,29 +134,40 @@
   };
 
   # Virtualbox things and stuff
-  virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "simon" ];
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
-  virtualisation.virtualbox.guest.clipboard = true;
+
+  virtualisation.virtualbox = {
+    host.enable = true;
+    guest.enable = true;
+    guest.dragAndDrop = true;
+    guest.clipboard = true;
+  };
 
   # Autologin
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "simon";
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 20d --keep 20";
-    flake = "/simon/nixos";
+  services.displayManager = {
+    sddm.autoNumlock = true;
+    autoLogin.enable = true;
+    autoLogin.user = "simon";
+  };
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Enable generic linked binaries (nodejs managed with fnm, etc)
   programs.nix-ld.enable = true;
+
+  # Configure Gnome
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    epiphany
+    geary
+  ];
+
+  environment.variables.EDITOR = "vim";
 
   environment.systemPackages =
     (with pkgs; [
@@ -206,40 +222,10 @@
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
 
-    fontconfig = {
-      defaultFonts = {
-        monospace = [ "FiraCode" ];
-      };
+    fontconfig.defaultFonts = {
+      monospace = [ "FiraCode" ];
     };
   };
 
-  environment.variables.EDITOR = "vim";
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
