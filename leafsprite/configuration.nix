@@ -236,6 +236,8 @@
 
       # Other
       google-chrome
+      protonmail-desktop
+      betterbird
     ])
     ++ (with pkgs-stable; [
       vagrant
