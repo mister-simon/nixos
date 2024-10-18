@@ -22,14 +22,14 @@
     },
     "localhosts": {
       "locked": {
-        "lastModified": 1729265985,
-        "narHash": "sha256-luKfV9k6es4VVG2YMnow4QsPuJKupvH1PiN9Q9VzqxA=",
+        "lastModified": 1729269692,
+        "narHash": "sha256-zmEZmrRFVDLWRC1kjwl3btPdckaQWeVK2u04Xc3tGdU=",
         "path": "/home/simon/localhosts",
         "type": "path"
       },
       "original": {
-        "path": "/home/simon/localhosts",
-        "type": "path"
+        "id": "localhosts",
+        "type": "indirect"
       }
     },
     "nixpkgs": {

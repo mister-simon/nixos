@@ -21,9 +21,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    localhosts.url = "path:/home/simon/localhosts";
-    # nixos-hardware.url = "github:NixOS/nixos-hardware";
-    # php.url = "github:loophp/php-src-nix";      
+
+    # I want to manage some additions to my hosts file
+    # locally without tracking in this repo.
+    # Avoids hard coding work project names and such into this repo.
+    # `nix registry add localhosts path:/home/simon/nixos/localhosts`
+    localhosts.url = "flake:localhosts";
   };
 
   outputs =
