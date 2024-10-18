@@ -179,6 +179,7 @@
     enableCompletion = true;
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/nixos/#leafsprite";
+      update-hosts = "nix flake update --flake ~/nixos localhosts && nrs";
     };
     initExtra = ''
       git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"

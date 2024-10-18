@@ -1,5 +1,5 @@
 # Config
-alias hosts="code /etc/hosts"
+alias hosts="code ~/localhosts"
 
 # Git
 alias gs="git status"

@@ -21,6 +21,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    localhosts.url = "path:/home/simon/localhosts";
     # nixos-hardware.url = "github:NixOS/nixos-hardware";
     # php.url = "github:loophp/php-src-nix";      
   };
@@ -31,6 +32,7 @@
       nixpkgs,
       nixpkgs-stable,
       home-manager,
+      localhosts,
       ...
     }@inputs:
     let
@@ -54,6 +56,7 @@
           specialArgs = {
             inherit pkgs-stable;
             inherit inputs;
+            inherit localhosts;
           };
           modules = [
             ./leafsprite/configuration.nix

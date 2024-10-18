@@ -5,6 +5,8 @@
 {
   pkgs,
   pkgs-stable,
+  localhosts,
+  lib,
   ...
 }:
 
@@ -88,6 +90,10 @@
   networking = {
     hostName = "leafsprite";
     networkmanager.enable = true;
+    hosts = lib.mkMerge [
+      { "192.168.56.56" = [ "homestead.test" ]; }
+      localhosts.hosts
+    ];
   };
 
   # Set your time zone.
