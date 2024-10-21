@@ -238,12 +238,16 @@
       gnomeExtensions.caffeine
       gnomeExtensions.clipboard-indicator
       gnomeExtensions.hibernate-status-button
+      gnomeExtensions.wtmb-window-thumbnails
       dconf-editor
 
       # Other
       google-chrome
       protonmail-desktop
       betterbird
+
+      # Work
+      dbeaver-bin
     ])
     ++ (with pkgs-stable; [
       vagrant

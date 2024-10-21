@@ -22,8 +22,8 @@
     },
     "localhosts": {
       "locked": {
-        "lastModified": 1729269692,
-        "narHash": "sha256-zmEZmrRFVDLWRC1kjwl3btPdckaQWeVK2u04Xc3tGdU=",
+        "lastModified": 1729269765,
+        "narHash": "sha256-kWFqTj15oNH1LpW2dS6V4VUgFEVyXT/spdyduXdeUyc=",
         "path": "/home/simon/localhosts",
         "type": "path"
       },

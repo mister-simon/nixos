@@ -32,13 +32,14 @@
 
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = [
-          pkgs.gnomeExtensions.blur-my-shell.extensionUuid
-          pkgs.gnomeExtensions.pop-shell.extensionUuid
-          pkgs.gnomeExtensions.dash-to-dock.extensionUuid
-          pkgs.gnomeExtensions.caffeine.extensionUuid
-          pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
-          pkgs.gnomeExtensions.hibernate-status-button.extensionUuid
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          blur-my-shell.extensionUuid
+          pop-shell.extensionUuid
+          dash-to-dock.extensionUuid
+          caffeine.extensionUuid
+          clipboard-indicator.extensionUuid
+          hibernate-status-button.extensionUuid
+          wtmb-window-thumbnails.extensionUuid
         ];
         favorite-apps = [ ];
       };
@@ -83,6 +84,13 @@
         hot-keys = false;
         running-indicator-style = "DOTS";
         dash-max-icon-size = 60;
+      };
+
+      "org/gnome/shell/extensions/window-thumbnails" = {
+        remember-geometry = false;
+        hide-focused = true;
+        mouse-hover-action = 2;
+        mouse-hover-delay = 0;
       };
 
       "org/gnome/mutter/keybindings" = {
