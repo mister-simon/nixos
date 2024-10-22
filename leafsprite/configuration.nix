@@ -209,6 +209,8 @@
       curl
       bat
       fnm
+      zip
+      tldr
 
       # PHP
       php83
