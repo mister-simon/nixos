@@ -248,6 +248,7 @@
 
       # Work
       dbeaver-bin
+      inkscape
     ])
     ++ (with pkgs-stable; [
       vagrant
