@@ -210,6 +210,8 @@
       fnm
       zip
       tldr
+      fzf
+      fd
 
       # PHP
       php83

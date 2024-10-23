@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -173,6 +172,11 @@
     enable = true;
     enableBashIntegration = true;
     options = [ "--cmd cd" ];
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
   };
 
   programs.vscode = {
