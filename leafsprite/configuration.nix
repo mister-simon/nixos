@@ -2,13 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{
-  pkgs,
-  pkgs-stable,
-  localhosts,
-  lib,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -17,124 +11,56 @@
   ];
 
   # Bootloader.
-  boot = {
-    # Set up the loader
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-    # Point out the encrypted drive
-    initrd.luks.devices."luks-744c1528-e02f-4384-a339-e403a9e1630f".device = "/dev/disk/by-uuid/744c1528-e02f-4384-a339-e403a9e1630f";
+  # Point out the encrypted drive
+  boot.initrd.luks.devices."luks-744c1528-e02f-4384-a339-e403a9e1630f".device = "/dev/disk/by-uuid/744c1528-e02f-4384-a339-e403a9e1630f";
 
-    # Make the loader quieter
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      # "splash"
-      # "boot.shell_on_fail"
-      # "loglevel=3"
-      # "rd.systemd.show_status=false"
-      # "rd.udev.log_level=3"
-      # "udev.log_priority=3"
-    ];
+  networking.hostName = "leafsprite"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-    # Add plymouth to boot loader :Z
-    # plymouth = {
-    #   enable = true;
-    #   theme = "rings";
-    #   themePackages = with pkgs; [
-    #     # By default we would install all themes
-    #     (adi1090x-plymouth-themes.override {
-    #       selected_themes = [ "rings" ];
-    #     })
-    #   ];
-    # };
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-    # We should be able to read whatever fs we like...
-    supportedFilesystems = [
-      "ntfs"
-      "exfat"
-      "vfat"
-      "btrfs"
-      "reiserfs"
-      "f2fs"
-      "xfs"
-      "cifs"
-    ];
-  };
-
-  # Sundry settings for successful system storage
-  nix.settings = {
-    auto-optimise-store = true;
-
-    min-free = 128000000;
-    max-free = 1000000000;
-
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    warn-dirty = false;
-  };
-
-  # Clean yoself
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 20d --keep 20";
-    flake = "/simon/nixos";
-  };
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking = {
-    hostName = "leafsprite";
-    networkmanager.enable = true;
-    hosts = lib.mkMerge [
-      { "192.168.56.56" = [ "homestead.test" ]; }
-      localhosts.hosts
-    ];
-  };
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_GB.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_GB.UTF-8";
-      LC_IDENTIFICATION = "en_GB.UTF-8";
-      LC_MEASUREMENT = "en_GB.UTF-8";
-      LC_MONETARY = "en_GB.UTF-8";
-      LC_NAME = "en_GB.UTF-8";
-      LC_NUMERIC = "en_GB.UTF-8";
-      LC_PAPER = "en_GB.UTF-8";
-      LC_TELEPHONE = "en_GB.UTF-8";
-      LC_TIME = "en_GB.UTF-8";
-    };
-  };
-
-  # Enable hardware 🤞
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
+  services.xserver.enable = true;
 
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-    # Configure keymap in X11
-    xkb = {
-      layout = "gb";
-      variant = "";
-    };
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "gb";
+    variant = "";
   };
 
   # Configure console keymap
@@ -151,7 +77,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
   };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.simon = {
@@ -161,109 +96,51 @@
       "networkmanager"
       "wheel"
     ];
-  };
-
-  # Virtualbox things and stuff
-  users.extraGroups.vboxusers.members = [ "simon" ];
-
-  virtualisation.virtualbox = {
-    host.enable = true;
-    guest.enable = true;
-    guest.dragAndDrop = true;
-    guest.clipboard = true;
-  };
-
-  # Autologin
-  services.displayManager = {
-    autoLogin.enable = true;
-    autoLogin.user = "simon";
-  };
-  systemd.services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
+    packages = with pkgs; [
+      #  thunderbird
+    ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Enable generic linked binaries (nodejs managed with fnm, etc)
-  programs.nix-ld.enable = true;
-
-  # Configure Gnome
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    epiphany
-    geary
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    wget
+    curl
+    bat
   ];
 
   environment.variables.EDITOR = "vim";
 
-  environment.systemPackages =
-    (with pkgs; [
-      # CLI
-      git
-      gh
-      vim
-      wget
-      curl
-      bat
-      fnm
-      zip
-      tldr
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-      # PHP
-      php83
-      php83Packages.composer
-      php83Extensions.ctype
-      php83Extensions.curl
-      php83Extensions.dom
-      php83Extensions.fileinfo
-      php83Extensions.filter
-      # php83Extensions.hash # Couldn't find this one in package search...
-      php83Extensions.mbstring
-      php83Extensions.openssl
-      # php83Extensions.pcre # Couldn't find this one either...
-      php83Extensions.pdo
-      php83Extensions.session
-      php83Extensions.tokenizer
-      php83Extensions.xml
+  # List services that you want to enable:
 
-      # Nix
-      nixfmt-rfc-style
-      nil
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
 
-      # Gnome
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.pop-shell
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.caffeine
-      gnomeExtensions.clipboard-indicator
-      gnomeExtensions.hibernate-status-button
-      gnomeExtensions.wtmb-window-thumbnails
-      dconf-editor
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
-      # Other
-      google-chrome
-      protonmail-desktop
-      betterbird
-
-      # Work
-      dbeaver-bin
-      inkscape
-    ])
-    ++ (with pkgs-stable; [
-      vagrant
-    ]);
-
-  fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    ];
-
-    fontconfig.defaultFonts = {
-      monospace = [ "FiraCode" ];
-    };
-  };
-
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
 }
