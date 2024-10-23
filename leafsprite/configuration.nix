@@ -23,7 +23,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     # Point out the encrypted drive
-    initrd.luks.devices."luks-326b13f9-6b2b-4b44-a9e2-6de79c4e981e".device = "/dev/disk/by-uuid/326b13f9-6b2b-4b44-a9e2-6de79c4e981e";
+    initrd.luks.devices."luks-744c1528-e02f-4384-a339-e403a9e1630f".device = "/dev/disk/by-uuid/744c1528-e02f-4384-a339-e403a9e1630f";
 
     # Make the loader quieter
     consoleLogLevel = 0;
