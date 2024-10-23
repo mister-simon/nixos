@@ -175,7 +175,6 @@
 
   # Autologin
   services.displayManager = {
-    sddm.autoNumlock = true;
     autoLogin.enable = true;
     autoLogin.user = "simon";
   };
