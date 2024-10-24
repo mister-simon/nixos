@@ -161,6 +161,29 @@
       "networkmanager"
       "wheel"
     ];
+    packages = (
+      with pkgs;
+      [
+        # Gnome
+        dconf-editor
+        gnomeExtensions.blur-my-shell
+        gnomeExtensions.pop-shell
+        gnomeExtensions.dash-to-dock
+        gnomeExtensions.caffeine
+        gnomeExtensions.clipboard-indicator
+        gnomeExtensions.hibernate-status-button
+        gnomeExtensions.wtmb-window-thumbnails
+
+        # Other
+        google-chrome
+        protonmail-desktop
+        betterbird
+
+        # Work
+        dbeaver-bin
+        inkscape
+      ]
+    );
   };
 
   # Virtualbox things and stuff
@@ -233,25 +256,6 @@
       # Nix
       nixfmt-rfc-style
       nil
-
-      # Gnome
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.pop-shell
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.caffeine
-      gnomeExtensions.clipboard-indicator
-      gnomeExtensions.hibernate-status-button
-      gnomeExtensions.wtmb-window-thumbnails
-      dconf-editor
-
-      # Other
-      google-chrome
-      protonmail-desktop
-      betterbird
-
-      # Work
-      dbeaver-bin
-      inkscape
     ])
     ++ (with pkgs-stable; [
       vagrant
