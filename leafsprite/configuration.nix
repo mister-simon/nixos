@@ -182,6 +182,9 @@
         # Work
         dbeaver-bin
         inkscape
+
+        # Other
+        vial
       ]
     );
   };
@@ -205,6 +208,9 @@
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false;
   };
+
+  # Allow vial to access my kb
+  services.udev.packages = [ pkgs.vial ];
 
   # Install firefox.
   programs.firefox.enable = true;
