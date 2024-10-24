@@ -255,7 +255,7 @@
 
       # Nix
       nixfmt-rfc-style
-      nil
+      nixd
     ])
     ++ (with pkgs-stable; [
       vagrant
