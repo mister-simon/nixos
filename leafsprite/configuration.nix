@@ -185,6 +185,7 @@
 
         # Other
         vial
+        discord
       ]
     );
   };
