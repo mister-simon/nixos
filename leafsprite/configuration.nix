@@ -152,33 +152,35 @@
     alsa.support32Bit = true;
     pulse.enable = true;
 
-    configPackages = [
-      # https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Virtual-Devices#combine-sink-all-sinks
-      (pkgs.writeTextDir "share/pipewire/pipewire.conf.d/50-combined_stream.conf" ''
-        context.modules = [
+    # https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Virtual-Devices#combine-sink-all-sinks
+    extraConfig.pipewire = {
+      "50-combined_stream" = {
+        "context.modules" = [
           {
-            name = libpipewire-module-combine-stream
+            name = "libpipewire-module-combine-stream";
             args = {
-              combine.mode = sink
-              node.name = "combined_stream"
-              node.description = "Combined"
-              combine.latency-compensate = false   # if true, match latencies by adding delays
-              combine.props = {
-                audio.position = [ FL FR ]
-              }
-              stream.props = {
-              }
-              stream.rules = [
+              "combine.mode" = "sink";
+              "node.name" = "combine_sink";
+              "node.description" = "Combined";
+              "combine.latency-compensate" = false;
+              "combine.props" = {
+                "audio.position" = [
+                  "FL"
+                  "FR"
+                ];
+              };
+              "stream.props" = { };
+              "stream.rules" = [
                 {
-                  matches = [ { media.class = "Audio/Sink" } ]
-                  actions = { create-stream = { } }
+                  matches = [ { "media.class" = "Audio/Sink"; } ];
+                  actions.create-stream = { };
                 }
-              ]
-            }
+              ];
+            };
           }
-        ]
-      '')
-    ];
+        ];
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
