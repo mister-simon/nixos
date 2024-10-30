@@ -270,11 +270,18 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "JetBrainsMono"
+          "Mononoki"
+          "Monaspace"
+        ];
+      })
     ];
 
     fontconfig.defaultFonts = {
-      monospace = [ "FiraCode" ];
+      monospace = [ "JetBrainsMono" ];
     };
   };
 
