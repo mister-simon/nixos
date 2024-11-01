@@ -1,26 +1,26 @@
 {
-    pkgs,
-    pkgs-stable,
-    localhosts,
-    lib,
-    ...
+  pkgs,
+  pkgs-stable,
+  localhosts,
+  lib,
+  ...
 }:
 {
-    wsl.enable = true;
+  wsl.enable = true;
 
-    nix.settings = {
-        auto-optimise-store = true;
+  nix.settings = {
+    auto-optimise-store = true;
 
-        min-free = 128000000;
-        max-free = 1000000000;
+    min-free = 128000000;
+    max-free = 1000000000;
 
-        experimental-features = [
-            "nix-command"
-            "flakes"
-        ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
-        warn-dirty = false;
-    };
+    warn-dirty = false;
+  };
 
-    system.stateVersion = "24.05";
+  system.stateVersion = "24.05";
 }

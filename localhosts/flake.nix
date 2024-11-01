@@ -1,7 +1,8 @@
 {
   description = ''
-    This will store any local changes to a local hosts file.
-    Copy this to ~/localhosts to be used as an untracked flake input.
+    
+        This will store any local changes to a local hosts file.
+        Copy this to ~/localhosts to be used as an untracked flake input.
   '';
 
   inputs = { };

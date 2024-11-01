@@ -194,10 +194,11 @@
       update-hosts = "nix flake update --flake ~/nixos localhosts && nrs";
     };
     initExtra = ''
-      git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"
-      fnm_bin="${pkgs.fnm}/bin/fnm"
-      ${builtins.readFile ./sources/.bashrc}
-      unset git_prompt fnm_bin
+      
+            git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"
+            fnm_bin="${pkgs.fnm}/bin/fnm"
+            ${builtins.readFile ./sources/.bashrc}
+            unset git_prompt fnm_bin
     '';
   };
 }
