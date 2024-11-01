@@ -22,5 +22,22 @@
     warn-dirty = false;
   };
 
+  programs.nix-ld.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    # CLI
+    git
+    gh
+    vim
+    wget
+    curl
+    bat
+    fnm
+    zip
+    tldr
+    fzf
+    fd
+  ];
+
   system.stateVersion = "24.05";
 }
