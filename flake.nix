@@ -22,6 +22,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     # I want to manage some additions to my hosts file
     # locally without tracking in this repo.
     # Avoids hard coding work project names and such into this repo.
@@ -36,6 +38,7 @@
       nixpkgs-stable,
       home-manager,
       localhosts,
+      nixos-wsl,
       ...
     }@inputs:
     let
@@ -70,6 +73,14 @@
               home-manager.useUserPackages = true;
               home-manager.users.simon = import ./leafsprite/home.nix;
             }
+          ];
+        };
+
+        wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixos-wsl.nixosModules.default
+            ./wsl/configuration.nix
           ];
         };
       };
