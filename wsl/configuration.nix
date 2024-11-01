@@ -22,6 +22,14 @@
     warn-dirty = false;
   };
 
+  # Clean yoself
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 20d --keep 20";
+    flake = "/nixos/nixos";
+  };
+
   programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -38,6 +46,11 @@
     fzf
     fd
   ];
+
+  xdg.portal = {
+    enable = true;
+    config.common.default = [ "gtk" ];
+  };
 
   system.stateVersion = "24.05";
 }
