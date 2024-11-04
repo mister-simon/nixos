@@ -207,7 +207,10 @@
         # Other
         google-chrome
         protonmail-desktop
-        betterbird
+
+        # error: betterbird has been removed as there were insufficient
+        # maintainer resources to keep up with security updates
+        # betterbird
 
         # Work
         dbeaver-bin
