@@ -23,7 +23,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     # I want to manage some additions to my hosts file
@@ -41,6 +41,7 @@
       home-manager,
       localhosts,
       nixos-wsl,
+      nix-flatpak,
       ...
     }@inputs:
     let
@@ -67,6 +68,7 @@
             inherit localhosts;
           };
           modules = [
+            nix-flatpak.nixosModules.nix-flatpak
             ./leafsprite/configuration.nix
             home-manager.nixosModules.home-manager
             {

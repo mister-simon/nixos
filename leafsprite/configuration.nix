@@ -244,11 +244,25 @@
     "autovt@tty1".enable = false;
   };
 
+  services.gnome = {
+    gnome-keyring.enable = true;
+    gnome-online-accounts.enable = true;
+  };
+
   # Allow vial to access my kb
   services.udev.packages = [ pkgs.vial ];
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Set up flatpak (via nix-flatpak)
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "eu.betterbird.Betterbird"
+    ];
+    update.onActivation = true;
+  };
 
   # Enable generic linked binaries (nodejs managed with fnm, etc)
   programs.nix-ld.enable = true;
@@ -297,6 +311,9 @@
       # Nix
       nixfmt-rfc-style
       nixd
+
+      # Other
+      flatpak
     ])
     ++ (with pkgs-stable; [
       vagrant

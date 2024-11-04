@@ -191,6 +191,11 @@
     # Manage extensions with vscode sync 🤷
   };
 
+  # Flatpak vars
+  home.sessionVariables = {
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"; # lets flatpak work
+  };
+
   home.file.".bash_aliases".source = ./sources/.bash_aliases;
 
   programs.bash = {
