@@ -5,6 +5,8 @@
    - https://github.com/EmergentMind/nix-config
    - https://github.com/librephoenix/nixos-config
    - https://github.com/LongerHV/nixos-configuration
+   - https://code.m3tam3re.com/m3tam3re/nixcfg
+   - https://gitlab.com/Zaney/zaneyos
 
    More stuff to check out...
 
