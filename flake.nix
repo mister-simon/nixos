@@ -79,6 +79,26 @@
             }
           ];
         };
+        basics = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs;
+          inherit system;
+          specialArgs = {
+            inherit pkgs-stable;
+            inherit inputs;
+            inherit localhosts;
+          };
+          modules = [
+            # nix-flatpak.nixosModules.nix-flatpak
+            ./basics/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.simon = import ./basics/home.nix;
+            }
+          ];
+        };
 
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
