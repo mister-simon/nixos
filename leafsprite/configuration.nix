@@ -314,6 +314,7 @@
 
       # Other
       flatpak
+      onlyoffice-bin
     ])
     ++ (with pkgs-stable; [
       vagrant
