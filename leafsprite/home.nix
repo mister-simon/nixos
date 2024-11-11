@@ -166,6 +166,9 @@
     enable = true;
     userName = "Simon W";
     userEmail = "4751279+mister-simon@users.noreply.github.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   programs.zoxide = {
