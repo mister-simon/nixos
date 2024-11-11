@@ -48,3 +48,7 @@ fi
 if [ -f "$fnm_bin" ]; then
     eval "$($fnm_bin env --use-on-cd --shell bash)"
 fi
+
+if [ -d ~/.config/composer/vendor/bin ]; then
+    PATH="~/.config/composer/vendor/bin:$PATH"
+fi
