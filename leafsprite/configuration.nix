@@ -204,7 +204,7 @@
         gnomeExtensions.hibernate-status-button
         gnomeExtensions.wtmb-window-thumbnails
 
-        # Other
+        # Web / Mail
         google-chrome
         protonmail-desktop
 
@@ -220,6 +220,8 @@
         vial
         discord
         pulseaudioFull
+        notesnook
+        obsidian
       ]
     );
   };
@@ -260,6 +262,7 @@
     enable = true;
     packages = [
       "eu.betterbird.Betterbird"
+      "io.github.zen_browser.zen"
     ];
     update.onActivation = true;
   };
