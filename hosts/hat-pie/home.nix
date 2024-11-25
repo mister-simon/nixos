@@ -11,6 +11,8 @@
     sessionVariables = { };
   };
 
+  home.file.".bash_aliases".source = ../leafsprite/sources/.bash_aliases;
+
   programs = {
     git = {
       enable = true;
