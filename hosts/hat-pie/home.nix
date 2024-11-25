@@ -11,17 +11,16 @@
       with pkgs;
       [
         # CLI
-        git
-        gh
-        neovim
-        wget
-        curl
         bat
-        fnm
-        zip
-        tldr
-        fzf
+        curl
+        gh
+        git
         fd
+        fnm
+        fzf
+        tldr
+        wget
+        zip
 
         # PHP
         # php84
@@ -104,6 +103,15 @@
       ];
       defaultCommand = "fd --type f --exclude .git --follow --hidden";
       changeDirWidgetCommand = "fd --type d --exclude .git --follow --hidden";
+    };
+
+    neovim = {
+      enable = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        vim-sensible
+        nerdtree
+      ];
     };
   };
 
