@@ -20,13 +20,13 @@
   home.file.".bash_aliases".source = ../leafsprite/sources/.bash_aliases;
 
   programs = {
+    home-manager.enable = true;
+
     git = {
       enable = true;
       userName = "Simon W";
       userEmail = "4751279+mister-simon@users.noreply.github.com";
     };
-
-    home-manager.enable = true;
 
     bash = {
       enable = true;
@@ -42,6 +42,23 @@
         unset git_prompt fnm_bin
       '';
     };
-  };
 
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+      options = [ "--cmd cd" ];
+    };
+
+    fzf = {
+      enable = true;
+      enableBashIntegration = true;
+
+      defaultOptions = [
+        "--preview='bat --color=always -n {}'"
+        "--bind 'ctrl-/:toggle-preview'"
+      ];
+      defaultCommand = "fd --type f --exclude .git --follow --hidden";
+      changeDirWidgetCommand = "fd --type d --exclude .git --follow --hidden";
+    };
+  };
 }
