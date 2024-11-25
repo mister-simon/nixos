@@ -56,8 +56,26 @@
       };
     in
     {
+      # Formatting
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
+      # Standalone home-manager
+      homeConfigurations = {
+        "simon" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          inherit system;
+          extraSpecialArgs = {
+            inherit pkgs-stable;
+            inherit inputs;
+            inherit localhosts;
+          };
+          modules = [
+            ./hosts/hat-pie/home.nix
+          ];
+        };
+      };
+
+      # NixOS
       nixosConfigurations = {
         # Desktop PC
         leafsprite = nixpkgs.lib.nixosSystem rec {
@@ -70,13 +88,13 @@
           };
           modules = [
             nix-flatpak.nixosModules.nix-flatpak
-            ./leafsprite/configuration.nix
+            ./hosts/leafsprite/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.simon = import ./leafsprite/home.nix;
+              home-manager.users.simon = import ./hosts/leafsprite/home.nix;
             }
           ];
         };
@@ -92,13 +110,13 @@
           };
           modules = [
             # nix-flatpak.nixosModules.nix-flatpak
-            ./basics/configuration.nix
+            ./hosts/basics/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.simon = import ./basics/home.nix;
+              home-manager.users.simon = import ./hosts/basics/home.nix;
             }
           ];
         };
@@ -108,7 +126,7 @@
           system = "x86_64-linux";
           modules = [
             nixos-wsl.nixosModules.default
-            ./wsl/configuration.nix
+            ./hosts/wsl/configuration.nix
           ];
         };
       };
