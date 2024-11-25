@@ -59,6 +59,7 @@
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
       nixosConfigurations = {
+        # Desktop PC
         leafsprite = nixpkgs.lib.nixosSystem rec {
           inherit pkgs;
           inherit system;
@@ -79,6 +80,8 @@
             }
           ];
         };
+
+        # Debug mode / brand new NixOS
         basics = nixpkgs.lib.nixosSystem rec {
           inherit pkgs;
           inherit system;
@@ -100,6 +103,7 @@
           ];
         };
 
+        # WSL 😬
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
