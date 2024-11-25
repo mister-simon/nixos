@@ -11,5 +11,14 @@
     sessionVariables = { };
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    git = {
+      enable = true;
+      userName = "Simon W";
+      userEmail = "4751279+mister-simon@users.noreply.github.com";
+    };
+
+    home-manager.enable = true;
+  };
+
 }
