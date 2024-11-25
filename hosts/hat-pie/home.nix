@@ -1,5 +1,10 @@
 { ... }:
 {
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
   home = {
     username = "simon";
     homeDirectory = "/home/simon";
