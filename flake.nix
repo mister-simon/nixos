@@ -63,12 +63,7 @@
       homeConfigurations = {
         "simon" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          inherit system;
-          extraSpecialArgs = {
-            inherit pkgs-stable;
-            inherit inputs;
-            inherit localhosts;
-          };
+
           modules = [
             ./hosts/hat-pie/home.nix
           ];
