@@ -113,6 +113,8 @@
         nerdtree
       ];
     };
+
+    vscode.enable = true;
   };
 
   # Dconf
