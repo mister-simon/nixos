@@ -1,16 +1,9 @@
-{ pkgs, nixgl, ... }:
 {
-  # GPU Stuff?
-  nixGL = {
-    packages = nixgl.packages;
-    defaultWrapper = "mesa";
-    offloadWrapper = "nvidiaPrime";
-    installScripts = [
-      "mesa"
-      "nvidiaPrime"
-    ];
-  };
-
+  config,
+  pkgs,
+  ...
+}:
+{
   # Home
   home = {
     username = "simon";
@@ -88,10 +81,6 @@
         ${builtins.readFile ../leafsprite/sources/.bashrc}
         unset git_prompt fnm_bin
       '';
-    };
-
-    kitty = {
-      enable = true;
     };
 
     zoxide = {

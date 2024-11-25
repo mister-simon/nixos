@@ -25,7 +25,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixgl.url = "github:nix-community/nixGL";
+    # nixgl.url = "github:nix-community/nixGL";
 
     # I want to manage some additions to my hosts file
     # locally without tracking in this repo.
@@ -43,7 +43,7 @@
       localhosts,
       nixos-wsl,
       nix-flatpak,
-      nixgl,
+      # nixgl,
       ...
     }@inputs:
     let
@@ -65,10 +65,6 @@
       homeConfigurations = {
         "simon" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-
-          extraSpecialArgs = {
-            inherit nixgl;
-          };
 
           modules = [
             ./hosts/hat-pie/home.nix
