@@ -295,21 +295,21 @@
       fd
 
       # PHP
-      php83
-      php83Packages.composer
-      php83Extensions.ctype
-      php83Extensions.curl
-      php83Extensions.dom
-      php83Extensions.fileinfo
-      php83Extensions.filter
-      # php83Extensions.hash # Couldn't find this one in package search...
-      php83Extensions.mbstring
-      php83Extensions.openssl
-      # php83Extensions.pcre # Couldn't find this one either...
-      php83Extensions.pdo
-      php83Extensions.session
-      php83Extensions.tokenizer
-      php83Extensions.xml
+      php84
+      php84Packages.composer
+      php84Extensions.ctype
+      php84Extensions.curl
+      php84Extensions.dom
+      php84Extensions.fileinfo
+      php84Extensions.filter
+      # php84Extensions.hash # Couldn't find this one in package search...
+      php84Extensions.mbstring
+      php84Extensions.openssl
+      # php84Extensions.pcre # Couldn't find this one either...
+      php84Extensions.pdo
+      php84Extensions.session
+      php84Extensions.tokenizer
+      php84Extensions.xml
 
       # Nix
       nixfmt-rfc-style
