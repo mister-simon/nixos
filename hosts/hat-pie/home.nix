@@ -1,5 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, nixgl, ... }:
 {
+  # GPU Stuff?
+  nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = "mesa";
+    offloadWrapper = "nvidiaPrime";
+    installScripts = [
+      "mesa"
+      "nvidiaPrime"
+    ];
+  };
+
   # Home
   home = {
     username = "simon";
@@ -21,23 +32,6 @@
         tldr
         wget
         zip
-
-        # PHP
-        # php84
-        # php84Packages.composer
-        # php84Extensions.ctype
-        # php84Extensions.curl
-        # php84Extensions.dom
-        # php84Extensions.fileinfo
-        # php84Extensions.filter
-        # # php84Extensions.hash # Couldn't find this one in package search...
-        # php84Extensions.mbstring
-        # php84Extensions.openssl
-        # # php84Extensions.pcre # Couldn't find this one either...
-        # php84Extensions.pdo
-        # php84Extensions.session
-        # php84Extensions.tokenizer
-        # php84Extensions.xml
 
         # Nix
         nixfmt-rfc-style
