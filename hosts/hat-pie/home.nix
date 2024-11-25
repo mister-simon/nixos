@@ -72,12 +72,12 @@
     enable = true;
     settings = {
       "org/gnome/desktop/background" = {
-        picture-options = "spanned";
+        picture-options = "zoom";
         picture-uri = "file://${../leafsprite/sources/leafsprite-wide-bg.png}";
         picture-uri-dark = "file://${../leafsprite/sources/leafsprite-wide-bg.png}";
       };
       "org/gnome/desktop/screensaver" = {
-        picture-options = "spanned";
+        picture-options = "zoom";
         picture-uri = "file://${../leafsprite/sources/leafsprite-wide-bg.png}";
         picture-uri-dark = "file://${../leafsprite/sources/leafsprite-wide-bg.png}";
       };
