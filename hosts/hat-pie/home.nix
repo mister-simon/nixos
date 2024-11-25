@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # Home
   home = {
     username = "simon";
     homeDirectory = "/home/simon";
@@ -10,15 +11,23 @@
       with pkgs;
       [
         fnm
+        bat
+        fd
       ]
     );
 
-    file = { };
+    file = {
+      ".bash_aliases".source = ../leafsprite/sources/.bash_aliases;
+    };
     sessionVariables = { };
+
+    shellAliases = {
+      nrs = "home-manager switch --flake ~/nixos";
+      update-hosts = "nix flake update --flake ~/nixos localhosts && nrs";
+    };
   };
 
-  home.file.".bash_aliases".source = ../leafsprite/sources/.bash_aliases;
-
+  # Programs
   programs = {
     home-manager.enable = true;
 
@@ -31,10 +40,6 @@
     bash = {
       enable = true;
       enableCompletion = true;
-      shellAliases = {
-        nrs = "home-manager switch --flake ~/nixos";
-        update-hosts = "nix flake update --flake ~/nixos localhosts && nrs";
-      };
       initExtra = ''
         git_prompt="${pkgs.git}/share/bash-completion/completions/git-prompt.sh"
         fnm_bin="${pkgs.fnm}/bin/fnm"
