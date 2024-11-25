@@ -66,6 +66,15 @@
     };
   };
 
+  # Fonts
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts.monospace = [
+      "MonaspiceRn Nerd Font"
+      "FiraCode Nerd Font"
+    ];
+  };
+
   # Programs
   programs = {
     home-manager.enable = true;
@@ -85,6 +94,10 @@
         ${builtins.readFile ../leafsprite/sources/.bashrc}
         unset git_prompt fnm_bin
       '';
+    };
+
+    kitty = {
+      enable = true;
     };
 
     zoxide = {
