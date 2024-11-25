@@ -43,6 +43,16 @@
         # Nix
         nixfmt-rfc-style
         nixd
+
+        # Fonts
+        (nerdfonts.override {
+          fonts = [
+            "FiraCode"
+            "JetBrainsMono"
+            "Mononoki"
+            "Monaspace"
+          ];
+        })
       ]
     );
 
