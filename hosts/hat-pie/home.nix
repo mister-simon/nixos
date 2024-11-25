@@ -6,7 +6,13 @@
 
     stateVersion = "24.05";
 
-    packages = [ ];
+    packages = (
+      with pkgs;
+      [
+        fnm
+      ]
+    );
+
     file = { };
     sessionVariables = { };
   };
