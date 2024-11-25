@@ -12,4 +12,3 @@
  - `cp ~/nixos/localhosts ~/localhosts`
  - `nix registry add localhosts path:/home/simon/localhosts` (or use `path:/home/simon/nixos/localhosts`)
  - `update-hosts`
-a
