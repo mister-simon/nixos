@@ -334,9 +334,9 @@
     },
     "localhosts": {
       "locked": {
-        "lastModified": 1732705891,
-        "narHash": "sha256-iRVFHUB++u50T49HUijypTW9EAAmcZBy/36usDNXHa0=",
-        "path": "/home/simon/nixos/localhosts",
+        "lastModified": 1729269765,
+        "narHash": "sha256-kWFqTj15oNH1LpW2dS6V4VUgFEVyXT/spdyduXdeUyc=",
+        "path": "/home/simon/localhosts",
         "type": "path"
       },
       "original": {
