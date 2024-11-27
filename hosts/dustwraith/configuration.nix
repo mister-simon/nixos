@@ -3,6 +3,7 @@
   pkgs-stable,
   localhosts,
   lib,
+  inputs,
   ...
 }:
 
@@ -10,6 +11,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.xremap-flake.nixosModules.default
   ];
 
   # Bootloader.
@@ -89,11 +91,32 @@
     xkb = {
       layout = "gb";
       variant = "";
+      options = "caps:backspace";
     };
   };
 
   # Configure console keymap
   console.keyMap = "uk";
+
+  # Enabling xremap
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [ "simon" ];
+  users.groups.input.members = [ "simon" ];
+
+  services.xremap = {
+    withGnome = true;
+    userName = "simon";
+    config = {
+      keymap = [
+        {
+          name = "main";
+          remap = {
+            "capslock" = "backspace";
+          };
+        }
+      ];
+    };
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -108,10 +131,7 @@
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users.simon = {
     isNormalUser = true;
     description = "simon";

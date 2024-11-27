@@ -25,6 +25,8 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    xremap-flake.url = "github:xremap/nix-flake";
+
     # nixgl.url = "github:nix-community/nixGL";
 
     # I want to manage some additions to my hosts file
