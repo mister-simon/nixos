@@ -77,8 +77,6 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # TODO: Enable graphics
-
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -171,7 +169,15 @@
     ];
   };
 
-  # TODO: Virtualbox
+  # Virtualbox things and stuff
+  users.extraGroups.vboxusers.members = [ "simon" ];
+
+  virtualisation.virtualbox = {
+    host.enable = true;
+    guest.enable = true;
+    guest.dragAndDrop = true;
+    guest.clipboard = true;
+  };
 
   # Autologin
   services.displayManager = {
@@ -224,23 +230,6 @@
         fzf
         fd
 
-        # PHP
-        # php84
-        # php84Packages.composer
-        # php84Extensions.ctype
-        # php84Extensions.curl
-        # php84Extensions.dom
-        # php84Extensions.fileinfo
-        # php84Extensions.filter
-        # # php84Extensions.hash # Couldn't find this one in package search...
-        # php84Extensions.mbstring
-        # php84Extensions.openssl
-        # # php84Extensions.pcre # Couldn't find this one either...
-        # php84Extensions.pdo
-        # php84Extensions.session
-        # php84Extensions.tokenizer
-        # php84Extensions.xml
-
         # Nix
         nixfmt-rfc-style
         nixd
@@ -250,7 +239,7 @@
         # onlyoffice-bin
       ])
       ++ (with pkgs-stable; [
-        # vagrant
+        vagrant
       ]);
   };
 
