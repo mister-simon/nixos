@@ -26,6 +26,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     xremap-flake.url = "github:xremap/nix-flake";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # nixgl.url = "github:nix-community/nixGL";
 
@@ -45,6 +46,7 @@
       localhosts,
       nixos-wsl,
       nix-flatpak,
+      nixos-hardware,
       # nixgl,
       ...
     }@inputs:
@@ -108,6 +110,7 @@
             inherit localhosts;
           };
           modules = [
+            nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
             nix-flatpak.nixosModules.nix-flatpak
             ./hosts/dustwraith/configuration.nix
             home-manager.nixosModules.home-manager
