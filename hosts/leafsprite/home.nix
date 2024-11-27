@@ -49,14 +49,15 @@
       };
 
       "org/gnome/desktop/screensaver" = {
-        picture-options = "spanned";
+        picture-options = lib.mkDefault "spanned";
         picture-uri = "file://${./sources/leafsprite-wide-bg.png}";
+        picture-uri-dark = "file://${./sources/leafsprite-wide-bg.png}";
         primary-color = "#000000000000";
         secondary-color = "#000000000000";
       };
 
       "org/gnome/desktop/background" = {
-        picture-options = "spanned";
+        picture-options = lib.mkDefault "spanned";
         picture-uri = "file://${./sources/leafsprite-wide-bg.png}";
         picture-uri-dark = "file://${./sources/leafsprite-wide-bg.png}";
         primary-color = "#000000000000";
