@@ -96,6 +96,28 @@
           ];
         };
 
+        # Laptop
+        dustwraith = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs;
+          inherit system;
+          specialArgs = {
+            inherit pkgs-stable;
+            inherit inputs;
+            inherit localhosts;
+          };
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            ./hosts/dustwraith/configuration.nix
+            # home-manager.nixosModules.home-manager
+            # {
+            #   home-manager.extraSpecialArgs = specialArgs;
+            #   home-manager.useGlobalPkgs = true;
+            #   home-manager.useUserPackages = true;
+            #   home-manager.users.simon = import ./hosts/dustwraith/home.nix;
+            # }
+          ];
+        };
+
         # Debug mode / brand new NixOS
         basics = nixpkgs.lib.nixosSystem rec {
           inherit pkgs;
