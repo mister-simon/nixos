@@ -166,54 +166,73 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # TODO: Flatpaks
+  # Set up flatpak (via nix-flatpak)
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "eu.betterbird.Betterbird"
+      "io.github.zen_browser.zen"
+    ];
+    update.onActivation = true;
+  };
 
   # Enable generic linked binaries (nodejs managed with fnm, etc)
   programs.nix-ld.enable = true;
 
-  environment.systemPackages =
-    (with pkgs; [
-      # CLI
-      git
-      gh
-      neovim
-      wget
-      curl
-      bat
-      fnm
-      zip
-      tldr
-      fzf
-      fd
+  environment = {
+    # Configure Gnome
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      epiphany
+      geary
+    ];
 
-      # PHP
-      # php84
-      # php84Packages.composer
-      # php84Extensions.ctype
-      # php84Extensions.curl
-      # php84Extensions.dom
-      # php84Extensions.fileinfo
-      # php84Extensions.filter
-      # # php84Extensions.hash # Couldn't find this one in package search...
-      # php84Extensions.mbstring
-      # php84Extensions.openssl
-      # # php84Extensions.pcre # Couldn't find this one either...
-      # php84Extensions.pdo
-      # php84Extensions.session
-      # php84Extensions.tokenizer
-      # php84Extensions.xml
+    variables.EDITOR = "nvim";
 
-      # Nix
-      nixfmt-rfc-style
-      nixd
+    systemPackages =
+      (with pkgs; [
+        # CLI
+        git
+        gh
+        neovim
+        wget
+        curl
+        bat
+        fnm
+        zip
+        tldr
+        fzf
+        fd
 
-      # Other
-      # flatpak
-      # onlyoffice-bin
-    ])
-    ++ (with pkgs-stable; [
-      # vagrant
-    ]);
+        # PHP
+        # php84
+        # php84Packages.composer
+        # php84Extensions.ctype
+        # php84Extensions.curl
+        # php84Extensions.dom
+        # php84Extensions.fileinfo
+        # php84Extensions.filter
+        # # php84Extensions.hash # Couldn't find this one in package search...
+        # php84Extensions.mbstring
+        # php84Extensions.openssl
+        # # php84Extensions.pcre # Couldn't find this one either...
+        # php84Extensions.pdo
+        # php84Extensions.session
+        # php84Extensions.tokenizer
+        # php84Extensions.xml
+
+        # Nix
+        nixfmt-rfc-style
+        nixd
+
+        # Other
+        flatpak
+        # onlyoffice-bin
+      ])
+      ++ (with pkgs-stable; [
+        # vagrant
+      ]);
+  };
 
   fonts = {
     packages = with pkgs; [
