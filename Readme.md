@@ -7,7 +7,7 @@
  - Copy `hardware-configuration.nix` to the local repo and update `initrd.luks.devices` if necessary
  - `sudo rm -rf /etc/nixos`
  - `sudo ln -s ~/nixos /etc/nixos`
- - `nix-shell`a
+ - `nix-shell`
  - `sudo nixos-rebuild switch --flake ~/nixos/#leafsprite`
  - `cp ~/nixos/localhosts ~/localhosts`
  - `nix registry add localhosts path:/home/simon/localhosts` (or use `path:/home/simon/nixos/localhosts`)
