@@ -266,58 +266,60 @@
   # Enable generic linked binaries (nodejs managed with fnm, etc)
   programs.nix-ld.enable = true;
 
-  # Configure Gnome
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    epiphany
-    geary
-  ];
+  environment = {
+    # Configure Gnome
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      epiphany
+      geary
+    ];
 
-  environment.variables.EDITOR = "vim";
+    variables.EDITOR = "nvim";
 
-  environment.systemPackages =
-    (with pkgs; [
-      # CLI
-      git
-      gh
-      neovim
-      wget
-      curl
-      bat
-      fnm
-      zip
-      tldr
-      fzf
-      fd
+    systemPackages =
+      (with pkgs; [
+        # CLI
+        git
+        gh
+        neovim
+        wget
+        curl
+        bat
+        fnm
+        zip
+        tldr
+        fzf
+        fd
 
-      # PHP
-      php84
-      php84Packages.composer
-      php84Extensions.ctype
-      php84Extensions.curl
-      php84Extensions.dom
-      php84Extensions.fileinfo
-      php84Extensions.filter
-      # php84Extensions.hash # Couldn't find this one in package search...
-      php84Extensions.mbstring
-      php84Extensions.openssl
-      # php84Extensions.pcre # Couldn't find this one either...
-      php84Extensions.pdo
-      php84Extensions.session
-      php84Extensions.tokenizer
-      php84Extensions.xml
+        # PHP
+        php84
+        php84Packages.composer
+        php84Extensions.ctype
+        php84Extensions.curl
+        php84Extensions.dom
+        php84Extensions.fileinfo
+        php84Extensions.filter
+        # php84Extensions.hash # Couldn't find this one in package search...
+        php84Extensions.mbstring
+        php84Extensions.openssl
+        # php84Extensions.pcre # Couldn't find this one either...
+        php84Extensions.pdo
+        php84Extensions.session
+        php84Extensions.tokenizer
+        php84Extensions.xml
 
-      # Nix
-      nixfmt-rfc-style
-      nixd
+        # Nix
+        nixfmt-rfc-style
+        nixd
 
-      # Other
-      flatpak
-      onlyoffice-bin
-    ])
-    ++ (with pkgs-stable; [
-      vagrant
-    ]);
+        # Other
+        flatpak
+        onlyoffice-bin
+      ])
+      ++ (with pkgs-stable; [
+        vagrant
+      ]);
+  };
 
   fonts = {
     packages = with pkgs; [
