@@ -198,6 +198,7 @@
     packages = [
       "eu.betterbird.Betterbird"
       "io.github.zen_browser.zen"
+      "com.protonvpn.www"
     ];
     update.onActivation = true;
   };
