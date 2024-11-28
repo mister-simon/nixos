@@ -47,6 +47,8 @@ fi
 
 if [ -f "$fnm_bin" ]; then
     eval "$($fnm_bin env --use-on-cd --shell bash)"
+    export FNM_COREPACK_ENABLED="true"
+    eval "$($fnm_bin completions)"
 fi
 
 if [ -d ~/.config/composer/vendor/bin ]; then
