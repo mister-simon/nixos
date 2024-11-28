@@ -150,23 +150,19 @@
 
       # Web / Mail
       google-chrome
-      # protonmail-desktop
-      # protonvpn-gui
-
-      # error: betterbird has been removed as there were insufficient
-      # maintainer resources to keep up with security updates
-      # betterbird
+      protonmail-desktop
+      protonvpn-gui
 
       # Work
-      # dbeaver-bin
-      # inkscape
+      dbeaver-bin
+      inkscape
 
       # Other
-      # vial
-      # discord
+      vial
+      discord
       pulseaudioFull
-      # notesnook
-      # obsidian
+      notesnook
+      obsidian
     ];
   };
 
