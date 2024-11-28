@@ -151,6 +151,7 @@
       # Web / Mail
       google-chrome
       # protonmail-desktop
+      # protonvpn-gui
 
       # error: betterbird has been removed as there were insufficient
       # maintainer resources to keep up with security updates
@@ -189,16 +190,15 @@
     "autovt@tty1".enable = false;
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  # Allow vial to access my kb
+  # services.udev.packages = [ pkgs.vial ];
 
   # Set up flatpak (via nix-flatpak)
   services.flatpak = {
-    enable = true;
+    enable = false;
     packages = [
       "eu.betterbird.Betterbird"
       "io.github.zen_browser.zen"
-      "com.protonvpn.www"
     ];
     update.onActivation = true;
   };
