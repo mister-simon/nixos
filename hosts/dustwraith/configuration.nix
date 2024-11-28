@@ -162,7 +162,7 @@
       # inkscape
 
       # Other
-      vial
+      # vial
       # discord
       pulseaudioFull
       # notesnook
@@ -195,7 +195,7 @@
 
   # Set up flatpak (via nix-flatpak)
   services.flatpak = {
-    enable = false;
+    enable = true;
     packages = [
       "eu.betterbird.Betterbird"
       "io.github.zen_browser.zen"
