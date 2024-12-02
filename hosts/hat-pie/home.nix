@@ -31,14 +31,10 @@
         nixd
 
         # Fonts
-        (nerdfonts.override {
-          fonts = [
-            "FiraCode"
-            "JetBrainsMono"
-            "Mononoki"
-            "Monaspace"
-          ];
-        })
+        nerd-fonts.fira-code
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.mononoki
+        nerd-fonts.monaspace
       ]
     );
 

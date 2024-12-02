@@ -24,6 +24,17 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [ "quiet" ];
+
+    supportedFilesystems = [
+      "ntfs"
+      "exfat"
+      "vfat"
+      "btrfs"
+      "reiserfs"
+      "f2fs"
+      "xfs"
+      "cifs"
+    ];
   };
 
   # Sundry settings for successful system storage
@@ -242,14 +253,10 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "Mononoki"
-          "Monaspace"
-        ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.mononoki
+      nerd-fonts.monaspace
     ];
 
     fontconfig.defaultFonts = {
