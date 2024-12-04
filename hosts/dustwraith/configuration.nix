@@ -21,6 +21,7 @@
     ../../features/programs-browsers.nix
     ../../features/programs-cli.nix
     ../../features/programs-editor.nix
+    ../../features/programs-virtualbox.nix
 
     # Other laptop stuff
     ./fingerprint-reader.nix
