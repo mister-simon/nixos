@@ -42,7 +42,10 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -65,7 +68,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
+
   users.users.simon = {
     isNormalUser = true;
     description = "simon";
@@ -73,7 +76,7 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   # Install firefox.
@@ -94,22 +97,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-        wget
-        curl
-        bat
-        fnm
-        zip
-        tldr
-        fzf
-        fd
+    wget
+    curl
+    bat
+    fnm
+    zip
+    tldr
+    fzf
+    fd
 
     neovim
     google-chrome
     vscode
 
-
-        nixfmt-rfc-style
-        nixd
+    nixfmt-rfc-style
+    nixd
   ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
