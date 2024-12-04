@@ -20,6 +20,7 @@
     # Programs
     ../../features/programs-browsers.nix
     ../../features/programs-cli.nix
+    ../../features/programs-php.nix
     ../../features/programs-editor.nix
     ../../features/programs-virtualbox.nix
 
