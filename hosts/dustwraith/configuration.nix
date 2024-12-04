@@ -24,6 +24,7 @@
     ../../features/programs-php.nix
     ../../features/programs-editor.nix
     ../../features/programs-virtualbox.nix
+    ../../features/programs-chat.nix
 
     # Other laptop stuff
     ./fingerprint-reader.nix
