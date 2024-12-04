@@ -110,8 +110,8 @@
             inherit localhosts;
           };
           modules = [
-            nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
-            nix-flatpak.nixosModules.nix-flatpak
+            # nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
+            # nix-flatpak.nixosModules.nix-flatpak
             ./hosts/dustwraith/configuration.nix
             # home-manager.nixosModules.home-manager
             # {
