@@ -6,4 +6,9 @@
     nixfmt-rfc-style
     nixd
   ];
+
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 }
