@@ -16,16 +16,6 @@ esac
 
 export PROMPT_DIRTRIM=3
 
-if [ -f "$git_prompt" ]; then
-    source "$git_prompt"
-
-    if [ "$color_prompt" = yes ]; then
-        PS1='\[\033[38;5;239m\]\A\[$(tput sgr0)\] ''${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[00m\]\033[0;32m$(__git_ps1 " (%s)")\033[0m\$ '
-    else
-        PS1='\A ''${debian_chroot:+($debian_chroot)} \w$(__git_ps1 " (%s)")\$ '
-    fi
-fi
-
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir

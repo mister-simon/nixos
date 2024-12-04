@@ -6,7 +6,7 @@
     ./hardware-configuration.nix
 
     # User
-    ../../users/simon.nix
+    ../../users/simon/system.nix
 
     # General
     ../../features/boot.nix
