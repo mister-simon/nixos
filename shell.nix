@@ -22,6 +22,7 @@
         nix
         home-manager
         git
+        neovim
         ;
     };
   };
