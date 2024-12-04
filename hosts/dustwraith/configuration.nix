@@ -1,74 +1,29 @@
-{
-  pkgs,
-  pkgs-stable,
-  localhosts,
-  lib,
-  inputs,
-  ...
-}:
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.xremap-flake.nixosModules.default
   ];
 
   # Bootloader.
-  boot = {
-    # Set up the loader
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-    # Make the boot quieter
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [ "quiet" ];
+  boot.initrd.luks.devices."luks-cef16352-8b6c-4c9a-bc40-c077a1cc2ccb".device = "/dev/disk/by-uuid/cef16352-8b6c-4c9a-bc40-c077a1cc2ccb";
+  networking.hostName = "dustwraith"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-    supportedFilesystems = [
-      "ntfs"
-      "exfat"
-      "vfat"
-      "btrfs"
-      "reiserfs"
-      "f2fs"
-      "xfs"
-      "cifs"
-    ];
-  };
-
-  # Sundry settings for successful system storage
-  nix.settings = {
-    auto-optimise-store = true;
-
-    min-free = 128000000;
-    max-free = 1000000000;
-
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    warn-dirty = false;
-  };
-
-  # Clean yoself
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 20d --keep 20";
-    flake = "/simon/nixos";
-  };
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking = {
-    hostName = "dustwraith";
-    networkmanager.enable = true;
-    hosts = lib.mkMerge [
-      { "192.168.56.56" = [ "homestead.test" ]; }
-      localhosts.hosts
-    ];
-  };
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -89,43 +44,20 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
+  services.xserver.enable = true;
 
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-    # Configure keymap in X11
-    xkb = {
-      layout = "gb";
-      variant = "";
-      options = "caps:backspace";
-    };
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "gb";
+    variant = "";
   };
 
   # Configure console keymap
   console.keyMap = "uk";
-
-  # Enabling xremap
-  hardware.uinput.enable = true;
-  users.groups.uinput.members = [ "simon" ];
-  users.groups.input.members = [ "simon" ];
-
-  services.xremap = {
-    withGnome = true;
-    userName = "simon";
-    config = {
-      keymap = [
-        {
-          name = "main";
-          remap = {
-            "capslock" = "backspace";
-          };
-        }
-      ];
-    };
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -138,9 +70,18 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
   };
 
-  # Define a user account.
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.simon = {
     isNormalUser = true;
     description = "simon";
@@ -149,120 +90,48 @@
       "wheel"
     ];
     packages = with pkgs; [
-      # Gnome
-      dconf-editor
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.pop-shell
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.caffeine
-      gnomeExtensions.clipboard-indicator
-      gnomeExtensions.hibernate-status-button
-      gnomeExtensions.wtmb-window-thumbnails
-
-      # Web / Mail
-      google-chrome
-      protonmail-desktop
-      protonvpn-gui
-
-      # Work
-      dbeaver-bin
-      inkscape
-
-      # Other
-      vial
-      discord
-      pulseaudioFull
-      notesnook
-      obsidian
+      #  thunderbird
     ];
   };
 
-  # Virtualbox things and stuff
-  users.extraGroups.vboxusers.members = [ "simon" ];
+  # Install firefox.
+  programs.firefox.enable = true;
 
-  virtualisation.virtualbox = {
-    host.enable = true;
-    guest.enable = true;
-    guest.dragAndDrop = true;
-    guest.clipboard = true;
-  };
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
-  # Autologin
-  services.displayManager = {
-    autoLogin.enable = true;
-    autoLogin.user = "simon";
-  };
-  systemd.services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-  };
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+  ];
 
-  # Allow vial to access my kb
-  # services.udev.packages = [ pkgs.vial ];
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-  # Set up flatpak (via nix-flatpak)
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "eu.betterbird.Betterbird"
-      "io.github.zen_browser.zen"
-    ];
-    update.onActivation = true;
-  };
+  # List services that you want to enable:
 
-  # Enable generic linked binaries (nodejs managed with fnm, etc)
-  programs.nix-ld.enable = true;
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
 
-  environment = {
-    # Configure Gnome
-    gnome.excludePackages = with pkgs; [
-      gnome-tour
-      epiphany
-      geary
-    ];
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
-    variables.EDITOR = "nvim";
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.11"; # Did you read the comment?
 
-    systemPackages =
-      (with pkgs; [
-        # CLI
-        git
-        gh
-        neovim
-        wget
-        curl
-        bat
-        fnm
-        zip
-        tldr
-        fzf
-        fd
-
-        # Nix
-        nixfmt-rfc-style
-        nixd
-
-        # Other
-        flatpak
-        # onlyoffice-bin
-      ])
-      ++ (with pkgs-stable; [
-        vagrant
-      ]);
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      nerd-fonts.fira-code
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.mononoki
-      nerd-fonts.monaspace
-    ];
-
-    fontconfig.defaultFonts = {
-      monospace = [ "JetBrainsMono" ];
-    };
-  };
-
-  system.stateVersion = "24.05"; # Comment the you read did?
 }
