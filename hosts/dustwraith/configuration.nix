@@ -2,9 +2,13 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
+    # Global
     ./hardware-configuration.nix
+
+    # User
     ../../users/simon.nix
+
+    # General
     ../../features/boot.nix
     ../../features/networking.nix
     ../../features/i18n.nix
@@ -12,9 +16,14 @@
     ../../features/gnome.nix
     ../../features/printing.nix
     ../../features/sound.nix
+
+    # Programs
     ../../features/programs-browsers.nix
     ../../features/programs-cli.nix
     ../../features/programs-editor.nix
+
+    # Other laptop stuff
+    ./fingerprint-reader.nix
   ];
 
   # Bootloader.
