@@ -16,6 +16,7 @@
     ../../features/gnome.nix
     ../../features/printing.nix
     ../../features/sound.nix
+    ../../features/fonts.nix
 
     # Programs
     ../../features/programs-browsers.nix
