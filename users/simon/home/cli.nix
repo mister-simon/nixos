@@ -6,6 +6,7 @@
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
 
     defaultOptions = [
       "--preview='${pkgs.bat}/bin/bat --color=always -n {}'"
@@ -18,6 +19,7 @@
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
     options = [ "--cmd cd" ];
   };
 }

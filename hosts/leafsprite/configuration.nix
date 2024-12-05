@@ -31,6 +31,7 @@
     ../../features/programs-mail.nix # Mail browsers
     ../../features/programs-database.nix # Database browsers
     ../../features/programs-cli.nix # Git + CLI tools
+    ../../features/programs-zsh.nix # Basic zsh setup
     ../../features/programs-php.nix # PHP
     ../../features/programs-text-editor.nix # Text editors, formatting + env
     ../../features/programs-image-editor.nix # Image editors
