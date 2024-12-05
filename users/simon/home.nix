@@ -188,12 +188,6 @@
 
   home.file.".bash_aliases".source = ../../sources/.bash_aliases;
 
-  home.shellAliases = lib.mkDefault {
-    nrb = "sudo nixos-rebuild boot --flake ~/nixos/#leafsprite";
-    nrs = "sudo nixos-rebuild switch --flake ~/nixos/#leafsprite";
-    update-hosts = "nix flake update --flake ~/nixos localhosts && nrs";
-  };
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
