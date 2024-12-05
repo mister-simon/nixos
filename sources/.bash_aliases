@@ -1,3 +1,9 @@
+# Nix shell aliases
+alias nrb="sudo nixos-rebuild boot --flake ~/nixos/#$HOSTNAME"
+alias nrs="sudo nixos-rebuild switch --flake ~/nixos/#$HOSTNAME"
+alias setup-hosts="nix registry add localhosts path:/home/simon/localhosts"
+alias update-hosts="nix flake update --flake ~/nixos localhosts"
+
 # Config
 alias hosts="code ~/localhosts"
 

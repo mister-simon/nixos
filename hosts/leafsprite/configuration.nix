@@ -15,7 +15,6 @@
     ../../features/networking.nix # Enable networking and merge in localhosts
     ../../features/i18n.nix # Time, keyboard, localisation
     ../../features/nix.nix # Nix housekeeping.
-    ../../features/shell-aliases.nix # Adds some basic environment aliases
     ../../features/nh.nix # Nix garbage collection
     ../../features/gnome.nix # Enable gnome
     ../../features/gnome-security.nix # Enable autologin, and gnome keyring
