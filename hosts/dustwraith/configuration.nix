@@ -39,7 +39,7 @@
     ../../features/programs-virtualbox.nix # Virtualisation via virtualbox
     ../../features/programs-chat.nix # Chat programs
     # ../../features/programs-vial.nix # Keyboard configuring
-    # ../../features/programs-vpn.nix # VPN Provider
+    ../../features/programs-vpn.nix # VPN Provider
 
     # Other laptop stuff
     ./fingerprint-reader.nix
