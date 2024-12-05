@@ -1,15 +1,14 @@
 { ... }:
 {
   imports = [
-    ../leafsprite/home.nix
+    ../../users/simon/home/home.nix # Home manager basics
+    # ../../users/simon/home/gnome.nix # Mostly dconf
+    ../../users/simon/home/cli.nix # Some additional CLI tool config
+    ../../users/simon/home/bash.nix # Bashrc, aliases, etc.
+    # ../../users/simon/home/flatpak.nix # Additional user config for flatpaks
   ];
 
-  home.shellAliases = {
-    nrb = "sudo nixos-rebuild boot --flake ~/nixos/#dustwraith";
-    nrs = "sudo nixos-rebuild switch --flake ~/nixos/#dustwraith";
-    update-hosts = "nix flake update --flake ~/nixos localhosts && nrs";
-  };
-
+  # Local tweaks
   dconf = {
     settings = {
       "org/gnome/desktop/screensaver" = {

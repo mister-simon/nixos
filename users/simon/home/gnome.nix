@@ -3,31 +3,12 @@
   lib,
   ...
 }:
-
 {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "simon";
-  home.homeDirectory = "/home/simon";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "24.05";
-
   # Configure dconf / gnome extensions
   # use `dconf watch /`
   dconf = {
     enable = true;
     settings = {
-      # "org/gnome/settings-daemon/plugins/power" = {
-      #   power-button-action = "hibernate";
-      # };
 
       "org/gnome/shell" = {
         disable-user-extensions = false;
@@ -50,16 +31,16 @@
 
       "org/gnome/desktop/screensaver" = {
         picture-options = lib.mkDefault "spanned";
-        picture-uri = "file://${../../sources/leafsprite-wide-bg.png}";
-        picture-uri-dark = "file://${../../sources/leafsprite-wide-bg.png}";
+        picture-uri = "file://${../../../sources/leafsprite-wide-bg.png}";
+        picture-uri-dark = "file://${../../../sources/leafsprite-wide-bg.png}";
         primary-color = "#000000000000";
         secondary-color = "#000000000000";
       };
 
       "org/gnome/desktop/background" = {
         picture-options = lib.mkDefault "spanned";
-        picture-uri = "file://${../../sources/leafsprite-wide-bg.png}";
-        picture-uri-dark = "file://${../../sources/leafsprite-wide-bg.png}";
+        picture-uri = "file://${../../../sources/leafsprite-wide-bg.png}";
+        picture-uri-dark = "file://${../../../sources/leafsprite-wide-bg.png}";
         primary-color = "#000000000000";
         secondary-color = "#000000000000";
       };
@@ -158,43 +139,5 @@
         clock-show-weekday = true;
       };
     };
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-    options = [ "--cmd cd" ];
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-
-    defaultOptions = [
-      "--preview='bat --color=always -n {}'"
-      "--bind 'ctrl-/:toggle-preview'"
-    ];
-    defaultCommand = "fd --type f --exclude .git --follow --hidden";
-    changeDirWidgetCommand = "fd --type d --exclude .git --follow --hidden";
-  };
-
-  # Flatpak vars
-  home.sessionVariables = {
-    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"; # lets flatpak work
-  };
-
-  home.file.".bash_aliases".source = ../../sources/.bash_aliases;
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    initExtra = ''
-      fnm_bin="${pkgs.fnm}/bin/fnm"
-      ${builtins.readFile ../../sources/.bashrc}
-      unset fnm_bin
-    '';
   };
 }
