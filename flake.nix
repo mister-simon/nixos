@@ -113,13 +113,13 @@
             # nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
             nix-flatpak.nixosModules.nix-flatpak
             ./hosts/dustwraith/configuration.nix
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.extraSpecialArgs = specialArgs;
-            #   home-manager.useGlobalPkgs = true;
-            #   home-manager.useUserPackages = true;
-            #   home-manager.users.simon = import ./hosts/dustwraith/home.nix;
-            # }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.simon = import ./hosts/dustwraith/home.nix;
+            }
           ];
         };
 
