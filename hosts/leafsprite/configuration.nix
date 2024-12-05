@@ -39,6 +39,7 @@
     ../../features/programs-virtualbox.nix # Virtualisation via virtualbox
     ../../features/programs-chat.nix # Chat programs
     ../../features/programs-vial.nix # Keyboard configuring
+    ../../features/programs-vpn.nix # VPN Provider
   ];
 
   boot.initrd.luks.devices."luks-744c1528-e02f-4384-a339-e403a9e1630f".device = "/dev/disk/by-uuid/744c1528-e02f-4384-a339-e403a9e1630f";
