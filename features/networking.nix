@@ -1,6 +1,11 @@
-{ ... }:
+{ lib, localhosts, ... }:
 {
-  networking.hostName = "dustwraith";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
+  # Enable networking
+  networking = {
+    networkmanager.enable = true;
+    hosts = lib.mkMerge [
+      { "192.168.56.56" = [ "homestead.test" ]; }
+      localhosts.hosts
+    ];
+  };
 }

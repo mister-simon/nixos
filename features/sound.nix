@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -9,4 +9,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    pulseaudioFull
+  ];
 }

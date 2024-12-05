@@ -163,15 +163,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Simon W";
-    userEmail = "4751279+mister-simon@users.noreply.github.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
-
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
@@ -188,11 +179,6 @@
     ];
     defaultCommand = "fd --type f --exclude .git --follow --hidden";
     changeDirWidgetCommand = "fd --type d --exclude .git --follow --hidden";
-  };
-
-  programs.vscode = {
-    enable = true;
-    # Manage extensions with vscode sync 🤷
   };
 
   # Flatpak vars
@@ -214,7 +200,7 @@
     initExtra = ''
       fnm_bin="${pkgs.fnm}/bin/fnm"
       ${builtins.readFile ../../sources/.bashrc}
-      unset git_prompt fnm_bin
+      unset fnm_bin
     '';
   };
 }
