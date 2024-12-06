@@ -1,9 +1,4 @@
 { ... }:
 {
-  # programs.zsh = {
-  #   enable = true;
-  #   autosuggestion.enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   enableCompletion = true;
-  # };
+  home.file.".zshrc".source = ../../../sources/.zshrc;
 }
