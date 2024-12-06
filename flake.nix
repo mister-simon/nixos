@@ -65,17 +65,6 @@
       # Formatting
       formatter.${system} = pkgs.nixfmt-rfc-style;
 
-      # Standalone home-manager
-      homeConfigurations = {
-        "simon" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          modules = [
-            ./hosts/hat-pie/home.nix
-          ];
-        };
-      };
-
       # NixOS
       nixosConfigurations = {
         # Desktop PC
@@ -96,6 +85,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.simon = import ./hosts/leafsprite/home.nix;
+              home-manager.backupFileExtension = "bak";
             }
           ];
         };
@@ -119,16 +109,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.simon = import ./hosts/dustwraith/home.nix;
+              home-manager.backupFileExtension = "bak";
             }
-          ];
-        };
-
-        # WSL 😬
-        wsl = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            nixos-wsl.nixosModules.default
-            ./hosts/wsl/configuration.nix
           ];
         };
       };
