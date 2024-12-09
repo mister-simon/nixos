@@ -12,5 +12,5 @@
     ../../users/simon/home/flatpak.nix # Additional user config for flatpaks
   ];
 
-  home.sessionVariables.SHELL = "zsh";
+  # home.sessionVariables.SHELL = "zsh";
 }
