@@ -6,7 +6,7 @@
 
     # User
     ../../users/simon/system.nix # Adds the user to the system
-    # ../../users/simon/gnome-extensions.nix # Adds gnome extensions
+    ../../users/simon/gnome-extensions.nix # Adds gnome extensions
 
     # General
     ../../features/boot.nix # General boot features and filesystem support
