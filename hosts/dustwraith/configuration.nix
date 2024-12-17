@@ -34,7 +34,7 @@
     ../../features/programs-php.nix # PHP
     ../../features/programs-text-editor.nix # Text editors, formatting + env
     # ../../features/programs-image-editor.nix # Image editors
-    # ../../features/programs-note-editor.nix # Notetaking programs
+    ../../features/programs-note-editor.nix # Notetaking programs
     # ../../features/programs-office.nix # Office tools
     ../../features/programs-virtualbox.nix # Virtualisation via virtualbox
     ../../features/programs-chat.nix # Chat programs
