@@ -23,6 +23,9 @@ alias vh="vagrant halt"
 alias vr="vagrant reload --provision"
 alias vssh="vagrant ssh"
 
+# Sail
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+
 # Homestead
 function hs() {
     cd homestead "$(basename $PWD)" || cd homestead
