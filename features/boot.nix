@@ -6,13 +6,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.supportedFilesystems = [
-    "ntfs"
-    "exfat"
-    "vfat"
     "btrfs"
-    "reiserfs"
+    "ext2"
+    "ext3"
+    "ext4"
+    "exfat"
     "f2fs"
+    "fat8"
+    "fat16"
+    "fat32"
+    "ntfs"
     "xfs"
-    "cifs"
+    # "zfs"
   ];
 }
