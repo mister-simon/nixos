@@ -41,6 +41,7 @@
     ../../features/programs-chat.nix # Chat programs
     # ../../features/programs-vial.nix # Keyboard configuring
     ../../features/programs-vpn.nix # VPN Provider
+    ../../features/programs-udev.nix # Udev / Keyboard stuff
 
     # Other laptop stuff
     ./fingerprint-reader.nix
