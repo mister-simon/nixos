@@ -19,6 +19,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-566e53c2.url = "github:NixOS/nixpkgs/566e53c2ad750c84f6d31f9ccb9d00f823165550";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,6 +43,7 @@
       self,
       nixpkgs,
       nixpkgs-stable,
+      nixpkgs-566e53c2,
       home-manager,
       localhosts,
       nixos-wsl,
@@ -60,6 +62,10 @@
         inherit system;
         config.allowUnfree = true;
       };
+      pkgs-566e53c2 = import nixpkgs-566e53c2 {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       # Formatting
@@ -73,6 +79,7 @@
           inherit system;
           specialArgs = {
             inherit pkgs-stable;
+            inherit pkgs-566e53c2;
             inherit inputs;
             inherit localhosts;
           };
@@ -96,6 +103,7 @@
           inherit system;
           specialArgs = {
             inherit pkgs-stable;
+            inherit pkgs-566e53c2;
             inherit inputs;
             inherit localhosts;
           };
