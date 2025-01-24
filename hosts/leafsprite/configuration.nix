@@ -38,7 +38,7 @@
     ../../features/programs-note-editor.nix # Notetaking programs
     ../../features/programs-office.nix # Office tools
     ../../features/programs-virtualbox.nix # Virtualisation via virtualbox
-    ../../features/programs-docker.nix # Virtualisation via docker
+    # ../../features/programs-docker.nix # Virtualisation via docker
     ../../features/programs-chat.nix # Chat programs
     ../../features/programs-vial.nix # Keyboard configuring
     ../../features/programs-vpn.nix # VPN Provider
