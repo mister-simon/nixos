@@ -22,4 +22,8 @@
     enableZshIntegration = true;
     options = [ "--cmd cd" ];
   };
+
+  home.sessionVariables = {
+    _ZO_DOCTOR = 0;
+  };
 }
