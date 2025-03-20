@@ -5,7 +5,6 @@
 
   environment.systemPackages = with pkgs; [
     google-chrome
-    protonmail-desktop
   ];
 
   services.flatpak.packages = [
