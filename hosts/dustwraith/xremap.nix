@@ -18,6 +18,10 @@
           name = "main";
           remap = {
             "capslock" = "backspace";
+            "alt_r-k" = "left";
+            "alt_r-semicolon" = "right";
+            "alt_r-o" = "up";
+            "alt_r-l" = "down";
           };
         }
       ];
