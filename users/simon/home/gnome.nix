@@ -13,13 +13,14 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
-          blur-my-shell.extensionUuid
-          pop-shell.extensionUuid
-          dash-to-dock.extensionUuid
+          # blur-my-shell.extensionUuid
+          # pop-shell.extensionUuid
+          # dash-to-dock.extensionUuid
           caffeine.extensionUuid
           clipboard-indicator.extensionUuid
           hibernate-status-button.extensionUuid
           wtmb-window-thumbnails.extensionUuid
+          paperwm.extensionUuid
         ];
         favorite-apps = [ ];
       };
@@ -45,27 +46,27 @@
         secondary-color = "#000000000000";
       };
 
-      "org/gnome/shell/extensions/pop-shell" = {
-        tile-by-default = true;
-        active-hint = true;
-        show-title = false;
-        gap-outer = lib.hm.gvariant.mkUint32 0;
-        gap-inner = lib.hm.gvariant.mkUint32 0;
-        mouse-cursor-follows-active-window = false;
-      };
+      # "org/gnome/shell/extensions/pop-shell" = {
+      #   tile-by-default = true;
+      #   active-hint = true;
+      #   show-title = false;
+      #   gap-outer = lib.hm.gvariant.mkUint32 0;
+      #   gap-inner = lib.hm.gvariant.mkUint32 0;
+      #   mouse-cursor-follows-active-window = false;
+      # };
 
       "org/gnome/shell/extensions/clipboard-indicator" = {
         display-mode = 1;
       };
 
-      "org/gnome/shell/extensions/dash-to-dock" = {
-        multi-monitor = true;
-        show-trash = false;
-        show-mounts = false;
-        hot-keys = false;
-        running-indicator-style = "DOTS";
-        dash-max-icon-size = 60;
-      };
+      # "org/gnome/shell/extensions/dash-to-dock" = {
+      #   multi-monitor = true;
+      #   show-trash = false;
+      #   show-mounts = false;
+      #   hot-keys = false;
+      #   running-indicator-style = "DOTS";
+      #   dash-max-icon-size = 60;
+      # };
 
       "org/gnome/shell/extensions/window-thumbnails" = {
         remember-geometry = false;

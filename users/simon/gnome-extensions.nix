@@ -6,6 +6,7 @@
       dconf-editor
       gnomeExtensions.blur-my-shell
       gnomeExtensions.pop-shell
+      gnomeExtensions.paperwm
       gnomeExtensions.dash-to-dock
       gnomeExtensions.caffeine
       gnomeExtensions.clipboard-indicator
