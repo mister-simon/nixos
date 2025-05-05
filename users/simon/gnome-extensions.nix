@@ -11,6 +11,7 @@
       gnomeExtensions.clipboard-indicator
       gnomeExtensions.hibernate-status-button
       gnomeExtensions.wtmb-window-thumbnails
+      gnomeExtensions.paperwm
     ]
   );
 }

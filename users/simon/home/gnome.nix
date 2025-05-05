@@ -13,9 +13,10 @@
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
-          blur-my-shell.extensionUuid
-          pop-shell.extensionUuid
-          dash-to-dock.extensionUuid
+          # blur-my-shell.extensionUuid
+          # pop-shell.extensionUuid
+          # dash-to-dock.extensionUuid
+          paperwm.extensionUuid
           caffeine.extensionUuid
           clipboard-indicator.extensionUuid
           hibernate-status-button.extensionUuid
