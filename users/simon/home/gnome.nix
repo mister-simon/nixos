@@ -16,8 +16,9 @@
           # blur-my-shell.extensionUuid
           # pop-shell.extensionUuid
           # dash-to-dock.extensionUuid
-          # paperwm.extensionUuid
-          gtile.extensionUuid
+          # paperwm.extensionUuid           # Doesn't work well with multi-monitor
+          # gtile.extensionUuid             # Doesn't autotile how I wanted...
+          tiling-shell.extensionUuid
           caffeine.extensionUuid
           clipboard-indicator.extensionUuid
           hibernate-status-button.extensionUuid
