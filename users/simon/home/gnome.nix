@@ -16,7 +16,8 @@
           # blur-my-shell.extensionUuid
           # pop-shell.extensionUuid
           # dash-to-dock.extensionUuid
-          paperwm.extensionUuid
+          # paperwm.extensionUuid
+          gtile.extensionUuid
           caffeine.extensionUuid
           clipboard-indicator.extensionUuid
           hibernate-status-button.extensionUuid
