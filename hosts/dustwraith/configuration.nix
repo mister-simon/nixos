@@ -45,7 +45,8 @@
 
     # Other laptop stuff
     ./fingerprint-reader.nix
-    ./xremap.nix
+    # ./xremap.nix
+    ./kanata.nix
   ];
 
   # Bootloader.
