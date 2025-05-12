@@ -1,3 +1,9 @@
+#|
+Keynames: https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs#L172
+Example configs: https://github.com/jtroo/kanata/blob/main/cfg_samples/simple.kbd
+|#
+
+
 (defcfg
   process-unmapped-keys yes
 )
