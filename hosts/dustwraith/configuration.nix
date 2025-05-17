@@ -26,7 +26,7 @@
 
     # Programs
     ../../features/programs-generic.nix # General program settings
-    # ../../features/programs-flatpak.nix # Enable flatpaks via nix-flatpak
+    ../../features/programs-flatpak.nix # Enable flatpaks via nix-flatpak
     ../../features/programs-browsers.nix # Web browsers
     ../../features/programs-mail.nix # Mail browsers
     ../../features/programs-database.nix # Database browsers
