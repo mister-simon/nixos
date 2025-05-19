@@ -15,7 +15,8 @@
       # gnomeExtensions.pop-shell
       # gnomeExtensions.paperwm
       # gnomeExtensions.gtile
-      gnomeExtensions.tiling-shell
+      # gnomeExtensions.tiling-shell
+      gnomeExtensions.forge
     ]
   );
 }

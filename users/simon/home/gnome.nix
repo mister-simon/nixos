@@ -18,7 +18,8 @@
           # dash-to-dock.extensionUuid
           # paperwm.extensionUuid           # Doesn't work well with multi-monitor
           # gtile.extensionUuid             # Doesn't autotile how I wanted...
-          tiling-shell.extensionUuid
+          # tiling-shell.extensionUuid      # Also doesn't autotile...
+          forge.extensionUuid
           caffeine.extensionUuid
           clipboard-indicator.extensionUuid
           hibernate-status-button.extensionUuid
