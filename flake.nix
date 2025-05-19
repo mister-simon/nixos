@@ -25,31 +25,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    xremap-flake.url = "github:xremap/nix-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # nixgl.url = "github:nix-community/nixGL";
-
-    # I want to manage some additions to my hosts file
-    # locally without tracking in this repo.
-    # Avoids hard coding work project names and such into this repo.
-    # `nix registry add localhosts path:/home/simon/nixos/localhosts`
-    localhosts.url = "flake:localhosts";
+    localhosts.url = "path:/home/simon/localhosts";
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-stable,
       nixpkgs-566e53c2,
       home-manager,
       localhosts,
-      nixos-wsl,
       nix-flatpak,
-      nixos-hardware,
-      # nixgl,
       ...
     }@inputs:
     let
@@ -92,31 +80,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.simon = import ./hosts/leafsprite/home.nix;
-              home-manager.backupFileExtension = "bak";
-            }
-          ];
-        };
-
-        # Laptop
-        dustwraith = nixpkgs.lib.nixosSystem rec {
-          inherit pkgs;
-          inherit system;
-          specialArgs = {
-            inherit pkgs-stable;
-            inherit pkgs-566e53c2;
-            inherit inputs;
-            inherit localhosts;
-          };
-          modules = [
-            # nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
-            nix-flatpak.nixosModules.nix-flatpak
-            ./hosts/dustwraith/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = specialArgs;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.simon = import ./hosts/dustwraith/home.nix;
               home-manager.backupFileExtension = "bak";
             }
           ];
