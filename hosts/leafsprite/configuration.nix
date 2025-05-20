@@ -45,7 +45,7 @@
     ../../features/programs-udev.nix # Udev / Keyboard setup
   ];
 
-  boot.initrd.luks.devices."luks-744c1528-e02f-4384-a339-e403a9e1630f".device =
+  boot.initrd.luks.devices."luks-root".device =
     "/dev/disk/by-uuid/744c1528-e02f-4384-a339-e403a9e1630f";
 
   networking.hostName = "leafsprite";
