@@ -1,8 +1,8 @@
-{disko, ...}: {
+{inputs, ...}: {
   imports = [
     ./hardware.nix
     ./host-packages.nix
-    disko.nixosModules.disko
+    inputs.disko.nixosModules.disko
     ./disko-config.nix
   ];
 }
