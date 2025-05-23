@@ -12,6 +12,7 @@
 
    - https://nixos-and-flakes.thiscute.world/
    - https://codeberg.org/justgivemeaname/.dotfiles
+   - https://www.reddit.com/r/NixOS/comments/1kpkliz/starter_repository/
 */
 {
   description = "Simon's Very Good NixOS Flake.";
