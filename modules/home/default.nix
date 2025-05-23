@@ -2,7 +2,7 @@
   inherit (import ../../hosts/${host}/variables.nix) waybarChoice;
 in {
   imports = [
-    ./amfora.nix
+    # ./amfora.nix
     ./bash.nix
     ./bashrc-personal.nix
     ./bat.nix
@@ -11,7 +11,7 @@ in {
     ./emoji.nix
     ./fastfetch
     ./gh.nix
-    ./ghostty.nix
+    # ./ghostty.nix
     ./git.nix
     ./gtk.nix
     ./htop.nix

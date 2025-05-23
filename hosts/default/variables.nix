@@ -41,4 +41,7 @@
 
   # Enable Thunar GUI File Manager
   thunarEnable = true;
+
+  # Gaming
+  gamesEnable = false;
 }

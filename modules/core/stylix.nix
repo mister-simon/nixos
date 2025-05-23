@@ -39,14 +39,14 @@ in {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrains Mono";
       };
-      sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
-      serif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
+      # sansSerif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
+      # serif = {
+      #   package = pkgs.playfair;
+      #   name = "Montserrat";
+      # };
       sizes = {
         applications = 12;
         terminal = 15;

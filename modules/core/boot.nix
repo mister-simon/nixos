@@ -10,14 +10,9 @@
     kernel.sysctl = {"vm.max_map_count" = 2147483642;};
 
     # Disable systemd for a sec
-    # loader.systemd-boot.enable = true;
-
-    # Readds grub bootloader. Idk.
-    loader.grub.enable = true;
-    loader.grub.device = "/dev/sda";
-    loader.grub.useOSProber = true;
-
+    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    
     # Appimage Support
     binfmt.registrations.appimage = {
       wrapInterpreterInShell = false;
