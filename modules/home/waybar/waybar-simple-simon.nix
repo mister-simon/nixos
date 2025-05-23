@@ -16,44 +16,45 @@ in
         {
           layer = "top";
           position = "top";
-          modules-center = ["hyprland/workspaces"];
           modules-left = [
             "custom/startmenu"
             "pulseaudio"
-            "cpu"
-            "memory"
+            # "cpu"
+            # "memory"
             "idle_inhibitor"
-            "hyprland/window"
+            "hyprland/workspaces"
           ];
+          modules-center = ["hyprland/window"];
           modules-right = [
-            "custom/hyprbindings"
+            # "custom/hyprbindings"
             "custom/notification"
-            "custom/exit"
             "battery"
             "tray"
             "clock"
+            "custom/exit"
           ];
 
           "hyprland/workspaces" = {
-            format = "{name}";
+            format = "{icon}";
             format-icons = {
-              default = " ";
-              active = " ";
-              urgent = " ";
+              "urgent"= "";
+              "active"= "";
+              "default"= "";
             };
             on-scroll-up = "hyprctl dispatch workspace e+1";
             on-scroll-down = "hyprctl dispatch workspace e-1";
+            sort-by-number = false;
           };
           "clock" = {
             format =
               if clock24h == true
-              then '' {:L%H:%M}''
-              else '' {:L%I:%M %p}'';
+              then ''{:L%H:%M}''
+              else ''{:L%I:%M %p}'';
             tooltip = true;
             tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
           };
           "hyprland/window" = {
-            max-length = 22;
+            max-length = 50;
             separate-outputs = false;
             rewrite = {
               "" = "";
@@ -129,8 +130,8 @@ in
           "idle_inhibitor" = {
             format = "{icon}";
             format-icons = {
-              activated = "";
-              deactivated = "";
+              activated = "󰒳";
+              deactivated = "󰒲";
             };
             tooltip = "true";
           };
@@ -202,7 +203,7 @@ in
       style = concatStrings [
         ''
           * {
-            font-family: JetBrainsMono Nerd Font Mono;
+            font-family: MonaspiceRn Nerd Font Mono;
             font-size: 14px;
             border-radius: 0px;
             border: none;

@@ -61,10 +61,10 @@
     #copy-on-select = clipboard
 
     font-size = 12
-    #font-family = JetBrainsMono Nerd Font Mono
-    #font-family-bold = JetBrainsMono NFM Bold
-    #font-family-bold-italic = JetBrainsMono NFM Bold Italic
-    #font-family-italic = JetBrainsMono NFM Italic
+    #font-family = MonaspiceRn Nerd Font Mono
+    #font-family-bold = MonaspiceRn NFM Bold
+    #font-family-bold-italic = MonaspiceRn NFM Bold Italic
+    #font-family-italic = MonaspiceRn NFM Italic
 
     font-family = BerkeleyMono Nerd Font
     #font-family = Iosevka Nerd Font

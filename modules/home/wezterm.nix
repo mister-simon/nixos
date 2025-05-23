@@ -49,7 +49,7 @@
      config.use_fancy_tab_bar = true
      config.window_frame = {
        -- font = wezterm.font({ family = "FiraCode Nerd Font Mono", weight = "Regular" }),
-       font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono", weight = "Regular" }),
+       font = wezterm.font({ family = "MonaspiceRn Nerd Font Mono", weight = "Regular" }),
      }
 
      config.default_cursor_style = "BlinkingUnderline"
