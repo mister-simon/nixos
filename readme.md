@@ -4,7 +4,9 @@
 
 - cd into this flake folder
 
-- `lsblk` and replace `/dev/...` with the appropriate drive name
+- `lsblk` and replace `/dev/sd*` with the appropriate drive name
+
+- Get the drive ID using: `udevadm info --path block/sd* | grep by-id`
 
 - `sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode destroy,format,mount --flake .#btrnix`
 
