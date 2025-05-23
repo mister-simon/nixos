@@ -1,5 +1,5 @@
 {
-  description = "ZaneyOS";
+  description = "ZaneyOS - Simon's Spin";
 
   inputs = {
     home-manager = {
@@ -9,6 +9,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix";
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
