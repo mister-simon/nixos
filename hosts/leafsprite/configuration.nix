@@ -17,7 +17,7 @@
     ../../features/nix.nix # Nix housekeeping.
     ../../features/nh.nix # Nix garbage collection
     ../../features/gnome.nix # Enable gnome
-    # ../../features/gnome-autologin.nix # Enable autologin
+    ../../features/gnome-autologin.nix # Enable autologin
     ../../features/printing.nix # Enable cups
     ../../features/sound.nix # Enables sound
     ../../features/sound-combined-sink.nix # Combined audio sink for pipewire
