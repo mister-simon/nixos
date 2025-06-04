@@ -1,13 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 {
-
   # Set up flatpak (via nix-flatpak)
   services.flatpak = {
     enable = true;
-    update.onActivation = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly"; # Default value
+    };
   };
-
-  environment.systemPackages = with pkgs; [
-    flatpak
-  ];
 }

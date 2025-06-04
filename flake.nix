@@ -24,7 +24,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     xremap-flake.url = "github:xremap/nix-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -35,7 +35,7 @@
     # locally without tracking in this repo.
     # Avoids hard coding work project names and such into this repo.
     # `nix registry add localhosts path:/home/simon/nixos/localhosts`
-    localhosts.url = "flake:localhosts";
+    localhosts.url = "path:/home/simon/localhosts";
   };
 
   outputs =
