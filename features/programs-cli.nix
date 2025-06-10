@@ -23,7 +23,5 @@
     tldr
     fzf
     fd
-    tmux
-    zellij
   ];
 }
