@@ -26,4 +26,11 @@
   home.sessionVariables = {
     _ZO_DOCTOR = 0;
   };
+
+  programs.zellij = {
+    enable = true;
+    settings = {
+      show_startup_tips = false;
+    };
+  };
 }

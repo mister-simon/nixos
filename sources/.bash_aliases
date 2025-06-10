@@ -26,6 +26,9 @@ alias vssh="vagrant ssh"
 # Sail
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
+# Zellij
+alias zj="zellij a --create ${PWD///}"
+
 # Homestead
 function hs() {
     cd homestead "$(basename $PWD)" || cd homestead
