@@ -29,8 +29,7 @@
 
   programs.zellij = {
     enable = true;
-    settings = {
-      show_startup_tips = false;
-    };
   };
+
+  xdg.configFile."zellij/config.kdl".source = ../../../sources/zellij-config.kdl;
 }
