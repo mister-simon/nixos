@@ -45,7 +45,6 @@
 
     # Other laptop stuff
     ./fingerprint-reader.nix
-    # ./xremap.nix
     ./kanata.nix
   ];
 
