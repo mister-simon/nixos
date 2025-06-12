@@ -33,7 +33,7 @@ current_time() {
 
 ## Build-up what will be the final PS1 string
 set_bash_prompt() {
-    PS1="${RESET}"
+    PS1="${RESET}\n"
     PS1+="$(current_time) "
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
