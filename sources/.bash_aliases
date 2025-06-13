@@ -1,34 +1,3 @@
-# Nix shell aliases
-alias nrb="sudo nixos-rebuild boot --flake ~/nixos/#$HOSTNAME"
-alias nrs="sudo nixos-rebuild switch --flake ~/nixos/#$HOSTNAME"
-alias setup-hosts="nix registry add localhosts path:/home/simon/localhosts"
-alias update-hosts="nix flake update --flake ~/nixos localhosts"
-
-# Config
-alias hosts="code ~/localhosts"
-
-# Git
-alias gs="git status"
-alias gd="git diff"
-alias gc="git commit -m"
-alias gam="git commit --amend --no-edit"
-alias game="git commit --amend"
-alias gaa="git add -A"
-alias ga="git add ."
-alias gp="git push"
-
-# VMs
-alias vu="vagrant up --provision"
-alias vh="vagrant halt"
-alias vr="vagrant reload --provision"
-alias vssh="vagrant ssh"
-
-# Sail
-alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
-
-# Zellij
-alias zj="zellij a --create ${PWD///}"
-
 # Homestead
 function hs() {
     cd homestead "$(basename $PWD)" || cd homestead

@@ -9,9 +9,19 @@
     enableZshIntegration = true;
 
     defaultOptions = [
-      "--preview='${pkgs.bat}/bin/bat --color=always -n {}'"
-      "--bind 'ctrl-/:toggle-preview'"
+      "--margin=1"
+      "--layout=reverse"
+      "--border=none"
+      "--info='hidden'"
+      "--header=''"
+      "--prompt='/ '"
+      "-i"
+      "--no-bold"
+      "--bind='enter:execute(code -a {})'"
+      "--preview='bat --style=numbers --color=always --line-range :500 {}'"
+      "--preview-window=right:60%:wrap"
     ];
+
     defaultCommand = "${pkgs.fd}/bin/fd --type f --exclude .git --follow --hidden";
     changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d --exclude .git --follow --hidden";
   };
