@@ -23,6 +23,7 @@
     tldr
     fzf
     fd
+    eza
   ];
 
   environment.shellAliases = {
