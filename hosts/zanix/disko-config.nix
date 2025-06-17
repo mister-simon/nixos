@@ -1,9 +1,9 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      leafsprite = {
         type = "disk";
-        device = "dev/disk/by-id/ata-CT240BX300SSD1_1745E10675FF";
+        device = "/dev/disk/by-id/nvme-CT2000P5PSSD8_22513D4F5C83";
         content = {
           type = "gpt";
           partitions = {
