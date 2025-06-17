@@ -8,7 +8,7 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nvf.url = "github:notashelf/nvf";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:nix-community/stylix/release-25.05";
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
