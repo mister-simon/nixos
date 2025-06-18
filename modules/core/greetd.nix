@@ -7,9 +7,13 @@
     enable = true;
     vt = 3;
     settings = {
+      initial_session = {
+        user = username;
+        command = "Hyprland";
+      };
       default_session = {
         user = username;
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --remember-user-session --time --cmd Hyprland"; # start Hyprland with a TUI login manager
       };
     };
   };
