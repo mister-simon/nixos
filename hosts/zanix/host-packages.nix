@@ -10,5 +10,6 @@
     vscode
     protonmail-desktop
     protonvpn-gui
+    google-chrome
   ];
 }
