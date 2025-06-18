@@ -6,8 +6,10 @@
     ;
 in {
   wayland.windowManager.hyprland.settings = {
+    bindr = [
+      "$modifier,SUPER_L,exec,rofi-launcher"
+    ];
     bind = [
-      "$modifier,Return,exec,rofi-launcher"
       "$modifier SHIFT,T,exec,${terminal}"
       "$modifier,K,exec,list-keybinds"
       "$modifier SHIFT,W,exec,web-search"
