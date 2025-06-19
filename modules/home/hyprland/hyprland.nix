@@ -145,11 +145,6 @@ in
         };
       };
 
-      environment = {
-        no_donation_nag = true;
-        no_update_news = false;
-      };
-
       cursor = {
         sync_gsettings_theme = true;
         no_hardware_cursors = 2; # change to 1 if want to disable
