@@ -1,4 +1,5 @@
-{profile, ...}: {
+{ profile, ... }:
+{
   # Services to start
   services = {
     libinput.enable = true; # Input Handling
@@ -10,10 +11,7 @@
     gnome.gnome-keyring.enable = true;
 
     smartd = {
-      enable =
-        if profile == "vm"
-        then false
-        else true;
+      enable = if profile == "vm" then false else true;
       autodetect = true;
     };
     pipewire = {

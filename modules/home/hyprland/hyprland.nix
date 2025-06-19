@@ -3,14 +3,15 @@
   config,
   pkgs,
   ...
-}: let
-  inherit
-    (import ../../../hosts/${host}/variables.nix)
+}:
+let
+  inherit (import ../../../hosts/${host}/variables.nix)
     extraMonitorSettings
     keyboardLayout
     stylixImage
     ;
-in {
+in
+{
   home.packages = with pkgs; [
     swww
     grim
@@ -39,7 +40,7 @@ in {
     systemd = {
       enable = true;
       enableXdgAutostart = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
     xwayland = {
       enable = true;
@@ -95,7 +96,8 @@ in {
         gaps_out = 2;
         border_size = 2;
         resize_on_border = true;
-        "col.active_border" = "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
+        "col.active_border" =
+          "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
         "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
       };
 
@@ -110,7 +112,7 @@ in {
         disable_splash_rendering = true;
         enable_swallow = false;
         vfr = false; # Variable Frame Rate
-        vrr = 0; #Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
+        vrr = 0; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
 
@@ -118,8 +120,7 @@ in {
         enable_anr_dialog = true;
         anr_missed_pings = 20;
 
-      };  
-
+      };
 
       dwindle = {
         pseudotile = true;
@@ -148,7 +149,6 @@ in {
         no_donation_nag = true;
         no_update_news = false;
       };
-      
 
       cursor = {
         sync_gsettings_theme = true;

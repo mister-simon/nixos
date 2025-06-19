@@ -1,9 +1,10 @@
-{host, ...}: let
-  inherit
-    (import ../../../hosts/${host}/variables.nix)
+{ host, ... }:
+let
+  inherit (import ../../../hosts/${host}/variables.nix)
     extraMonitorSettings
     ;
-in {
+in
+{
   wayland.windowManager.hyprland = {
     settings = {
       windowrulev2 = [
@@ -80,10 +81,10 @@ in {
       workspace = [
         "1, name:main, monitor:HDMI-A-2, persistent:true"
         "2, name:main-2, monitor:HDMI-A-1, persistent:true"
-        
+
         "4, name:mail, monitor:HDMI-A-2, persistent:true"
         "5, name:mail-2, monitor:HDMI-A-1, persistent:true"
-        
+
         "7, name:fun, monitor:HDMI-A-2, persistent:true"
         "8, name:fun-2, monitor:HDMI-A-1, persistent:true"
 

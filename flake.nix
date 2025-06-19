@@ -15,44 +15,47 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    system = "x86_64-linux";
-    host = "zanix";
-    profile = "nvidia";
-    username = "simon";
-    specialArgs = {
-      inherit inputs;
-      inherit username;
-      inherit host;
-      inherit profile;
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      host = "zanix";
+      profile = "nvidia";
+      username = "simon";
+      specialArgs = {
+        inherit inputs;
+        inherit username;
+        inherit host;
+        inherit profile;
+      };
+    in
+    {
+      nixosConfigurations = {
+        amd = nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+          modules = [ ./profiles/amd ];
+        };
+        nvidia = nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+          modules = [ ./profiles/nvidia ];
+        };
+        nvidia-laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+          modules = [ ./profiles/nvidia-laptop ];
+        };
+        intel = nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+          modules = [ ./profiles/intel ];
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+          modules = [ ./profiles/vm ];
+        };
+      };
     };
-  in {
-    nixosConfigurations = {
-      amd = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = [./profiles/amd];
-      };
-      nvidia = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = [./profiles/nvidia];
-      };
-      nvidia-laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = [./profiles/nvidia-laptop];
-      };
-      intel = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = [./profiles/intel];
-      };
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = [./profiles/vm];
-      };
-    };
-  };
 }

@@ -8,6 +8,6 @@ in
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
   };
-  
+
   programs.lazygit.enable = true;
 }
