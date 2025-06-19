@@ -1,9 +1,13 @@
 { inputs, ... }:
 {
   imports = [
+    # Hardware
     ./hardware.nix
-    ./host-packages.nix
     inputs.disko.nixosModules.disko
     ./disko-config.nix
+
+    # Software
+    ./host-packages.nix
+    ./shell-aliases.nix
   ];
 }

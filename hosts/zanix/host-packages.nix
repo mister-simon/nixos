@@ -2,15 +2,17 @@
 {
   environment.systemPackages = with pkgs; [
     discord
+    google-chrome
+    gnome-software
+    inkscape
+    krita
     nodejs
     nodejs.pkgs.pnpm
-    tldr
-    gnome-software
-    vscode
     protonmail-desktop
     protonvpn-gui
-    google-chrome
-    krita
-    inkscape
+    tldr
+    vscode
   ];
+
+  programs.zsh.enable = true;
 }
