@@ -12,6 +12,7 @@ in
 {
   programs.fzf = {
     enable = true;
+    enableBashIntegration = true;
     enableZshIntegration = true;
     colors = lib.mkForce {
       "fg+" = accent;
