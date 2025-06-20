@@ -34,6 +34,13 @@
     sail = "sh $([ -f sail ] && echo sail || echo vendor/bin/sail)";
 
     # Zellij
-    zj = ''zellij a --create ''${PWD///}'';
+    zj = ''
+      zellij a --create ''${PWD///}
+    '';
+
+    # Homestead
+    hs = ''
+      cd ~/work/homestead/$(basename $PWD) 2> /dev/null || cd ~/work/homestead 2> /dev/null || echo "Can't find homestead dir"
+    '';
   };
 }

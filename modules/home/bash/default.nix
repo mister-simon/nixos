@@ -5,8 +5,8 @@
     enableCompletion = true;
     initExtra = ''
       fastfetch
-      if [ -f $HOME/.bashrc-personal ]; then
-        source $HOME/.bashrc-personal
+      if [ -f $HOME/.bash_aliases ]; then
+        source $HOME/.bash_aliases
       fi
     '';
     shellAliases = {
@@ -23,4 +23,6 @@
       ".." = "cd ..";
     };
   };
+
+  home.file.".bash_aliases".source = ./.bash_aliases;
 }

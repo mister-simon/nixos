@@ -6,8 +6,7 @@ in
   imports = [
     ./alacritty.nix
     ./amfora.nix
-    ./bash.nix
-    ./bashrc-personal.nix
+    ./bash
     ./bat.nix
     ./btop.nix
     ./cava.nix
