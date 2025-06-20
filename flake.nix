@@ -1,3 +1,4 @@
+# ZaneyOS - https://gitlab.com/-/ide/project/Zaney/zaneyos/edit/main/-
 {
   description = "ZaneyOS - Simon's Spin";
 
