@@ -1,18 +1,19 @@
 function mkhs() {
-  workspace_pwd=$PWD
-  workspace_base="$(basename $PWD)"
-  new_homestead="~/work/homestead/$workspace_base"
+  WORKSPACE_PWD=$PWD
+  WORKSPACE_BASE="$(basename $PWD)"
+  NEW_HOMESTEAD="~/work/homestead/$WORKSPACE_BASE"
 
-  if [ -d $new_homestead ]; then
-    cd "$new_homestead"
+  if [ -d $NEW_HOMESTEAD ]; then
+    cd "$NEW_HOMESTEAD"
   else
     cd ~/work/homestead 2>/dev/null || return
-    git clone https://github.com/laravel/homestead.git "$workspace_base"
-    cd ~/work/homestead/$workspace_base || return
-    # cd "~/work/homestead/$workspace_base" 2>/dev/null || return
+    git clone https://github.com/laravel/homestead.git "$WORKSPACE_BASE"
+    cd ~/work/homestead/$WORKSPACE_BASE || return
     git checkout release
     bash ./init.sh
+
+    HOMESTEAD_FIND="~/code"
+    sed -i "s#$HOMESTEAD_FIND#${WORKSPACE_PWD/\#/\\#}#" Homestead.yaml
     code -a Homestead.yaml
-    echo $workspace_pwd
   fi
 }
