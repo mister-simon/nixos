@@ -20,5 +20,14 @@
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
     plymouth.enable = true;
+
+    # Make the loader quieter
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "splash"
+      "quiet"
+      "udev.log_priority=3"
+    ];
   };
 }
