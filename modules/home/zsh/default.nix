@@ -45,10 +45,11 @@
     ];
 
     initContent = ''
-      bindkey "\eh" backward-word
-      bindkey "\ej" down-line-or-history
-      bindkey "\ek" up-line-or-history
-      bindkey "\el" forward-word
+      bindkey "^H" backward-kill-word
+      # bindkey "\eh" backward-word
+      # bindkey "\ej" down-line-or-history
+      # bindkey "\ek" up-line-or-history
+      # bindkey "\el" forward-word
       if [ -f $HOME/.bash_aliases ]; then
         source $HOME/.bash_aliases
       fi
