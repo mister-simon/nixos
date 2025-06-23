@@ -90,7 +90,9 @@ in
 
         "3, name:spare, monitor:HDMI-A-2, persistent:true"
         "6, name:spare-2, monitor:HDMI-A-1, persistent:true"
+
         "9, name:spare-3, monitor:HDMI-A-2, persistent:true"
+        "10, name:spare-4, monitor:HDMI-A-1, persistent:true"
       ];
     };
 
