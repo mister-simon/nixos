@@ -136,11 +136,17 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
     }
-    shared_among "normal" "locked" {
+    shared_among "locked" {
         bind "Ctrl left" { MoveFocusOrTab "left"; }
-        bind "Ctrl down" { MoveFocus "down"; }
-        bind "Ctrl up" { MoveFocus "up"; }
         bind "Ctrl right" { MoveFocusOrTab "right"; }
+    }
+    shared_among "normal" {
+        bind "down" { MoveFocus "down"; }
+        bind "up" { MoveFocus "up"; }
+        bind "left" { MoveFocusOrTab "left"; }
+        bind "right" { MoveFocusOrTab "right"; }
+    }
+    shared_among "normal" "locked" {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt n" { NewPane; }
