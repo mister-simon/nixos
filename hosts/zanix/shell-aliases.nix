@@ -35,7 +35,7 @@
 
     # Zellij
     zj = ''
-      zellij a --create ''${PWD///}
+      zellij a --create ''${PWD//\//}
     '';
 
     # Homestead
