@@ -24,6 +24,10 @@
         59011
       ];
     };
+
+    extraHosts = ''
+      ${builtins.readFile ./hosts.txt}
+    '';
   };
 
   environment.systemPackages = with pkgs; [ networkmanagerapplet ];
