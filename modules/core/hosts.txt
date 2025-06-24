@@ -1,1 +1,2 @@
+# Publicly visible hosts
 192.168.56.56  homestead.test

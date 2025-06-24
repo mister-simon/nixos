@@ -25,10 +25,11 @@
       ];
     };
 
-    extraHosts = ''
-      ${builtins.readFile ./hosts.txt}
-    '';
+    hostFiles = [ ./hosts.txt ];
   };
+
+  # Sometimes I need to update this
+  environment.etc.hosts.mode = "0644";
 
   environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 }
