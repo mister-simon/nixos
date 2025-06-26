@@ -9,7 +9,7 @@ in
     settings = {
       windowrulev2 = [
         "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
-        "tag +terminal, class:^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm)$"
+        "tag +terminal, class:^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm|com.mitchellh.ghostty_scratch)$"
         "tag +browser, class:^(Brave-browser(-beta|-dev|-unstable)?)$"
         "tag +browser, class:^([Ff]irefox|org.mozilla.firefox|[Ff]irefox-esr)$"
         "tag +browser, class:^([Gg]oogle-chrome(-beta|-dev|-unstable)?)$"

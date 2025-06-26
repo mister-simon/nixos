@@ -10,8 +10,8 @@
 
     [scratchpads.term]
     animation = "fromTop"
-    command = "kitty --class kitty-dropterm"
-    class = "kitty-dropterm"
+    command = "ghostty --class=com.mitchellh.ghostty_scratch"
+    class = "com.mitchellh.ghostty_scratch"
     size = "70% 70%"
     max_size = "1920px 100%"
     position = "150px 150px"

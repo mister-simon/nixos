@@ -5,29 +5,29 @@
     enable = true;
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    prefix = "C-a";
-    terminal = "kitty";
+    prefix = "C-g";
+    terminal = "ghostty";
     keyMode = "vi";
 
     extraConfig = ''
-        set-option -g status-position top
+      set-option -g status-position top
 
-        #set -g default-terminal "screen-256color"
-        set-option -g history-limit 5000
-        unbind %
-        unbind '"'
+      #set -g default-terminal "screen-256color"
+      set-option -g history-limit 5000
+      unbind %
+      unbind '"'
 
-        bind-key h select-pane -L
-        bind-key j select-pane -D
-        bind-key k select-pane -U
-        bind-key l select-pane -R
+      bind-key h select-pane -L
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+      bind-key l select-pane -R
 
-        set -gq allow-passthrough on
-        bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+      set -gq allow-passthrough on
+      bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
 
-        bind-key -n C-Tab next-window
-        bind-key -n C-S-Tab previous-window
-        bind-key -n M-Tab new-window
+      bind-key -n C-Tab next-window
+      bind-key -n C-S-Tab previous-window
+      bind-key -n M-Tab new-window
 
 
       # Start windows and panes index at 1, not 0.
