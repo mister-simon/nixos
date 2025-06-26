@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.05";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
@@ -20,6 +21,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-unstable,
       nix-flatpak,
       ...
     }@inputs:
@@ -28,11 +30,17 @@
       host = "zanix";
       profile = "nvidia";
       username = "simon";
+
       specialArgs = {
         inherit inputs;
         inherit username;
         inherit host;
         inherit profile;
+
+        pkgs-unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
       };
     in
     {
