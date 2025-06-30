@@ -32,15 +32,10 @@
   stylixImage = ../../wallpapers/leafsprite-wide-bg.png;
 
   # Set Waybar
-  # Includes alternates such as waybar-curved.nix & waybar-ddubs.nix
   waybarChoice = ../../modules/home/waybar/waybar-simple-simon.nix;
 
   # Set Animation style
-  # Available options are:
-  # animations-def.nix  (default)
-  # animations-end4.nix (end-4 project)
-  # animations-dynamic.nix (ml4w project)
-  animChoice = ../../modules/home/hyprland/animations-def.nix;
+  animChoice = ../../modules/home/hyprland/animations-end4-speedy.nix;
 
   # Enable Thunar GUI File Manager
   thunarEnable = true;
