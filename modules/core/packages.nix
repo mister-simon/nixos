@@ -39,6 +39,7 @@
     glxinfo # needed for inxi diag util
     greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     htop # Simple Terminal Based System Monitor
+    hyprshot # Hyprland screenshot tool
     hyprpicker # Color Picker
     eog # For Image Viewing
     inxi # CLI System Information Tool

@@ -8,6 +8,8 @@
         "XDG_CURRENT_DESKTOP, Hyprland"
         "XDG_SESSION_TYPE, wayland"
         "XDG_SESSION_DESKTOP, Hyprland"
+        "XDG_PICTURES_DIR, $HOME/Pictures"
+        "HYPRSHOT_DIR, $XDG_PICTURES_DIR/Screenshots"
         "GDK_BACKEND, wayland, x11"
         "CLUTTER_BACKEND, wayland"
         "QT_QPA_PLATFORM=wayland;xcb"
