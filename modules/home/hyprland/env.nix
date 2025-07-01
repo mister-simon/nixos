@@ -1,4 +1,4 @@
-{ ... }:
+{ username, ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
@@ -8,8 +8,8 @@
         "XDG_CURRENT_DESKTOP, Hyprland"
         "XDG_SESSION_TYPE, wayland"
         "XDG_SESSION_DESKTOP, Hyprland"
-        "XDG_PICTURES_DIR, $HOME/Pictures"
-        "HYPRSHOT_DIR, $XDG_PICTURES_DIR/Screenshots"
+        "XDG_PICTURES_DIR, /home/${username}/Pictures"
+        "HYPRSHOT_DIR, /home/${username}/Pictures/Screenshots"
         "GDK_BACKEND, wayland, x11"
         "CLUTTER_BACKEND, wayland"
         "QT_QPA_PLATFORM=wayland;xcb"
