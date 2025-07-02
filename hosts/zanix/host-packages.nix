@@ -12,6 +12,7 @@
       nodejs
       nodejs.pkgs.pnpm
       tldr
+      clock-rs
 
       # PHP
       php84
