@@ -104,8 +104,15 @@ in
       # "$modifier,mouse_down,workspace, e+1"
       # "$modifier,mouse_up,workspace, e-1"
 
+      # Windows
       "ALT,Tab,cyclenext"
       "ALT,Tab,bringactivetotop"
+
+      # Speech to Text
+      "$modifier SHIFT,L,exec,flatpak run net.mkiol.SpeechNote --action start-listening-clipboard --start-in-tray"
+      "$modifier,L,exec,flatpak run net.mkiol.SpeechNote --action start-listening-active-window --start-in-tray"
+
+      # Audio
       ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       " ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
