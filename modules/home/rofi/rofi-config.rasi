@@ -1,0 +1,2 @@
+@import "~/.config/rofi/config-nix-gen.rasi"
+@theme "custom"

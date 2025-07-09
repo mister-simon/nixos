@@ -4,29 +4,35 @@
   ...
 }:
 {
-  programs = {
-    rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-      plugins = [
-        pkgs.rofi-calc
-      ];
-      extraConfig = {
-        modi = "drun,filebrowser,run,calc";
-        show-icons = true;
-        icon-theme = "Papirus";
-        font = "MonaspiceRn Nerd Font Mono 12";
-        drun-display-format = "{icon} {name}";
-        display-drun = " Apps";
-        display-run = " Run";
-        display-filebrowser = " File";
-        display-calc = " Calc";
-      };
-      theme =
-        let
-          inherit (config.lib.formats.rasi) mkLiteral;
-        in
-        {
+  # Allow setting rofi config directly. Pull in config-nix-gen.rasi.
+  home.file."${config.xdg.configHome}/rofi/config.rasi".source = ./rofi-config.rasi;
+
+  programs =
+    let
+      inherit (config.lib.formats.rasi) mkLiteral;
+    in
+    {
+      rofi = {
+        enable = true;
+        package = pkgs.rofi-wayland;
+        plugins = [
+          pkgs.rofi-calc
+        ];
+        configPath = "${config.xdg.configHome}/rofi/config-nix-gen.rasi";
+        extraConfig = {
+          modi = "drun,window,filebrowser,run,calc";
+          show-icons = true;
+          icon-theme = "Papirus";
+          font = "MonaspiceRn Nerd Font Mono 12";
+          drun-display-format = "{icon} {name}";
+          display-drun = "";
+          display-window = "";
+          display-run = "";
+          display-filebrowser = "";
+          display-calc = "";
+          scroll-method = 1;
+        };
+        theme = {
           "*" = {
             bg = mkLiteral "#${config.stylix.base16Scheme.base00}";
             bg-alt = mkLiteral "#${config.stylix.base16Scheme.base09}";
@@ -209,6 +215,6 @@
             text-color = mkLiteral "@foreground";
           };
         };
+      };
     };
-  };
 }
