@@ -18,6 +18,7 @@ with lib;
       {
         layer = "top";
         position = "top";
+
         modules-left = [
           "custom/startmenu"
           "pulseaudio"
@@ -32,9 +33,16 @@ with lib;
           "custom/notification"
           "battery"
           "tray"
-          "clock"
+          "group/clocks"
           "custom/exit"
         ];
+
+        "group/clocks" = {
+          modules = [
+            "clock#date"
+            "clock#time"
+          ];
+        };
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -47,8 +55,13 @@ with lib;
           on-scroll-down = "hyprctl dispatch workspace e-1";
           sort-by-number = false;
         };
-        "clock" = {
+        "clock#time" = {
           format = if clock24h == true then ''{:L%H:%M}'' else ''{:L%I:%M %p}'';
+          tooltip = true;
+          tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
+        };
+        "clock#date" = {
+          format = ''<small>{:L%a %d-%m-%y}</small>'';
           tooltip = true;
           tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
         };
