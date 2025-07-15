@@ -11,7 +11,7 @@
       gnome-software
       nodejs
       nodejs.pkgs.pnpm
-      tldr
+      # tldr # Tealdeer added
       clock-rs
 
       # PHP

@@ -8,6 +8,7 @@ in
     ./amfora.nix
     ./bash
     ./bat.nix
+    ./bottom.nix
     ./btop.nix
     ./cava.nix
     ./emoji.nix
@@ -30,6 +31,7 @@ in
     ./stylix.nix
     ./swappy.nix
     ./swaync.nix
+    ./tealdeer.nix
     ./tmux.nix
     ./virtmanager.nix
     waybarChoice
