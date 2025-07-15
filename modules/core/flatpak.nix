@@ -5,6 +5,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
     configPackages = [ pkgs.hyprland ];
   };
+
   services = {
     flatpak = {
       enable = true;
@@ -29,13 +30,13 @@
       # Optional: Automatically update Flatpaks when you run nixos-rebuild switch
       update.onActivation = true;
     };
+  };
 
-    # Additional compatibility
-    programs.nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        libgbm
-      ];
-    };
+  # Additional compatibility
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libgbm
+    ];
   };
 }
