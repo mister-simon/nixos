@@ -17,6 +17,8 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "SDL_VIDEODRIVER, x11"
         "MOZ_ENABLE_WAYLAND, 1"
+        # This is to make electron apps start in wayland
+        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
         # Disabling this by default as it can result in inop cfg
         # Added card2 in case this gets enabled. For better coverage
         # This is mostly needed by Hybrid laptops.

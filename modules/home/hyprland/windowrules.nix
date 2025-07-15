@@ -7,7 +7,7 @@ in
 {
   wayland.windowManager.hyprland = {
     settings = {
-      windowrulev2 = [
+      windowrule = [
         "tag +file-manager, class:^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$"
         "tag +terminal, class:^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm|com.mitchellh.ghostty_scratch)$"
         "tag +browser, class:^(Brave-browser(-beta|-dev|-unstable)?)$"
