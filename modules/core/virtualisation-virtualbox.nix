@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 {
   # Virtualbox things and stuff
   users.extraGroups.vboxusers.members = [ "simon" ];
@@ -8,10 +8,10 @@
 
   virtualisation.virtualbox = {
     host.enable = true;
-    # host.package = pkgs.virtualbox;
+    host.package = pkgs-stable.virtualbox;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-stable; [
     vagrant
   ];
 }

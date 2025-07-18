@@ -3,14 +3,15 @@
   description = "ZaneyOS - Simon's Spin";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
-    stylix.url = "github:danth/stylix/release-25.05";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     disko = {
       url = "github:nix-community/disko/latest";
@@ -22,6 +23,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      nixpkgs-stable,
       nix-flatpak,
       ...
     }@inputs:
@@ -38,6 +40,11 @@
         inherit profile;
 
         pkgs-unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+        pkgs-stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
         };
