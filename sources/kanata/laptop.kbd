@@ -15,7 +15,7 @@ Example configs: https://github.com/jtroo/kanata/blob/main/cfg_samples/simple.kb
 )
 
 (deflayer default
-  @cap @arr   _    _    _    _
+  @cap _      _    _    _    _
               _    _    _    _
   _    _      @arr
 )
