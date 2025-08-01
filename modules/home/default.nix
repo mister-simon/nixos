@@ -20,7 +20,7 @@ in
     ./git.nix
     ./gtk.nix
     ./htop.nix
-    # ./hyprland
+    ./hyprland
     ./kitty.nix
     ./lazygit.nix
     ./nvf.nix
