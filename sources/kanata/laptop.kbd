@@ -9,24 +9,32 @@ Example configs: https://github.com/jtroo/kanata/blob/main/cfg_samples/simple.kb
 )
 
 (defsrc
-  caps grv    i    o    p    [ 
-              k    l    ;    '
-  lsft rsft   ralt
 )
 
-(deflayer default
-  @cap _      _    _    _    _
-              _    _    _    _
-  _    _      @arr
+;; https://github.com/jtroo/kanata/discussions/1455
+(deftemplate charmod (char mod)
+  (switch 
+    ((key-timing 3 less-than 250)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
 )
 
-(deflayer arrows
-  _    _      pgup up   pgdn home
-              left down rght end
-  _    _      _
+(deflayermap (main)
+  a (t! charmod a lctl)
+  s (t! charmod s lmet)
+  d (t! charmod d lalt)
+  f (t! charmod f lsft)
+  caps (tap-hold 200 200 bspc (caps-word 2000))
+  ralt (tap-hold 200 200 ralt(layer-while-held arrows))
 )
 
-(defalias
-  cap (tap-hold-press 200 200 bspc lctl)
-  arr (tap-hold-press 200 200 ralt (layer-toggle arrows))
+(deflayermap (arrows)
+  i pgup
+  o up
+  p pgdn
+  [ home
+  k left
+  l down
+  ; rght
+  ' end
 )
