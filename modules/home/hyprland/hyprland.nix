@@ -7,8 +7,7 @@
 let
   inherit (import ../../../hosts/${host}/variables.nix)
     extraMonitorSettings
-    keyboardLayout
-    stylixImage
+    bgImage
     ;
 in
 {
@@ -57,7 +56,7 @@ in
         "killall -q swaync;sleep .5 && swaync"
         "nm-applet --indicator"
         "pypr &"
-        "sleep 1.5 && swww img ${stylixImage}"
+        "sleep 1.5 && swww img ${bgImage}"
       ];
 
       input = {

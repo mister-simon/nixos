@@ -29,7 +29,8 @@
   printEnable = false;
 
   # Set Stylix Image
-  stylixImage = ../../wallpapers/leafsprite-wide-bg.png;
+  stylixImage = ../../wallpapers/dkportrait0001.png;
+  bgImage = ../../wallpapers/landscape-crop-smaller.png;
 
   # Set Waybar
   waybarChoice = ../../modules/home/waybar/waybar-simple-simon.nix;

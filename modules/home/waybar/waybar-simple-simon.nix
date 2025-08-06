@@ -25,15 +25,17 @@ with lib;
           # "cpu"
           # "memory"
           "idle_inhibitor"
-          "hyprland/workspaces"
+          # "hyprland/workspaces"
+          "hyprland/window"
         ];
-        modules-center = [ "hyprland/window" ];
+        modules-center = [
+          "group/clocks"
+        ];
         modules-right = [
           # "custom/hyprbindings"
           "custom/notification"
           "battery"
           "tray"
-          "group/clocks"
           "custom/exit"
         ];
 
