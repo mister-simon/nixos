@@ -29,7 +29,7 @@
   printEnable = false;
 
   # Set Stylix Image
-  stylixImage = ../../wallpapers/dkportrait0001.png;
+  stylixImage = ../../stylix-imgs/dkportrait0001.png;
   bgImage = ../../wallpapers/landscape-crop-smaller.png;
 
   # Set Waybar
