@@ -28,7 +28,7 @@
     let
       system = "x86_64-linux";
       host = "zanix";
-      profile = "nvidia";
+      profile = "nvidia-laptop";
       username = "simon";
 
       specialArgs = {

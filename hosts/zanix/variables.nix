@@ -5,8 +5,6 @@
 
   # Hyprland Settings
   extraMonitorSettings = ''
-    monitor=HDMI-A-1,1920x1080@60.0,1920x0,1.0
-    monitor=HDMI-A-2,1920x1080@60.0,0x0,1.0
   '';
 
   # Waybar Settings
@@ -19,14 +17,14 @@
   consoleKeyMap = "uk";
 
   # For Nvidia Prime support
-  intelID = "PCI:1:0:0";
-  nvidiaID = "PCI:0:2:0";
+  nvidiaBusId = "PCI:1:0:0";
+  intelBusId = "PCI:0:2:0";
 
   # Enable NFS
   enableNFS = true;
 
   # Enable Printing Support
-  printEnable = false;
+  printEnable = true;
 
   # Set Stylix Image
   stylixImage = ../../stylix-imgs/dkportrait0001.png;

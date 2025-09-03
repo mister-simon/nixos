@@ -18,4 +18,6 @@
     bluetooth.powerOnBoot = true;
   };
   local.hardware-clock.enable = false;
+
+  services.udev.packages = [ pkgs.vial ];
 }

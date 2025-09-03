@@ -1,0 +1,40 @@
+#|
+Keynames: https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs#L172
+Example configs: https://github.com/jtroo/kanata/blob/main/cfg_samples/simple.kbd
+|#
+
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+)
+
+;; https://github.com/jtroo/kanata/discussions/1455
+(deftemplate charmod (char mod)
+  (switch 
+    ((key-timing 3 less-than 250)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
+(deflayermap (main)
+  a (t! charmod a lctl)
+  s (t! charmod s lmet)
+  d (t! charmod d lalt)
+  f (t! charmod f lsft)
+  caps (tap-hold 200 200 bspc (caps-word 2000))
+  ralt (tap-hold 200 200 ralt(layer-while-held arrows))
+)
+
+(deflayermap (arrows)
+  i pgup
+  o up
+  p pgdn
+  [ home
+  k left
+  l down
+  ; rght
+  ' end
+)

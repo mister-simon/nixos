@@ -13,6 +13,7 @@
       nodejs.pkgs.pnpm
       # tldr # Tealdeer added
       clock-rs
+      dbeaver-bin
 
       # PHP
       php84
@@ -30,12 +31,16 @@
       php84Extensions.xml
     ])
     ++ (with pkgs-unstable; [
+      proton-pass
       protonmail-desktop
       protonvpn-gui
       obs-studio
       inkscape
       krita
       vscode
+      obsidian
+      onlyoffice-bin
+      vial
     ]);
 
   programs.zsh.enable = true;
