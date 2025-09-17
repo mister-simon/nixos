@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  users.users.simon.packages = (
+  home.packages = (
     with pkgs;
     [
       dconf-editor
