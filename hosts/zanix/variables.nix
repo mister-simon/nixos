@@ -17,8 +17,8 @@
   consoleKeyMap = "uk";
 
   # For Nvidia Prime support
-  nvidiaBusId = "PCI:1:0:0";
-  intelBusId = "PCI:0:2:0";
+  nvidiaID = "PCI:1:0:0";
+  intelID = "PCI:0:2:0";
 
   # Enable NFS
   enableNFS = true;
