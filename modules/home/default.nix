@@ -18,10 +18,10 @@ in
     ./gh.nix
     ./ghostty.nix
     ./git.nix
-    ./gnome
+    # ./gnome
     ./gtk.nix
     ./htop.nix
-    # ./hyprland
+    ./hyprland
     ./kitty.nix
     ./lazygit.nix
     ./nvf.nix
@@ -36,7 +36,7 @@ in
     ./tealdeer.nix
     ./tmux.nix
     ./virtmanager.nix
-    # waybarChoice
+    waybarChoice
     ./wezterm.nix
     ./wlogout
     ./xdg.nix

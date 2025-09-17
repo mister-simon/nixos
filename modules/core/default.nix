@@ -7,9 +7,9 @@
     ./flatpak.nix
     ./fonts.nix
     # ./greetd.nix
-    ./gnome.nix
-    ./gnome-autologin.nix
-    # ./sddm.nix
+    # ./gnome.nix
+    # ./gnome-autologin.nix
+    ./sddm.nix
     ./hardware.nix
     ./kanata.nix
     ./network.nix
