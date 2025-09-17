@@ -18,7 +18,7 @@ in
     ./gh.nix
     ./ghostty.nix
     ./git.nix
-    ./gnome-extensions.nix
+    ./gnome
     ./gtk.nix
     ./htop.nix
     # ./hyprland
