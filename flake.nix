@@ -27,7 +27,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      host = "zanix";
+      host = "dustwraith";
       profile = "nvidia-laptop";
       username = "simon";
 

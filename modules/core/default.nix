@@ -11,6 +11,7 @@
     ./gnome-autologin.nix
     # ./sddm.nix
     ./hardware.nix
+    ./kanata.nix
     ./network.nix
     ./nfs.nix
     ./nh.nix
