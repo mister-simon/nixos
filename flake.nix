@@ -26,10 +26,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    xremap-flake.url = "github:xremap/nix-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # nixgl.url = "github:nix-community/nixGL";
 
     # I want to manage some additions to my hosts file
     # locally without tracking in this repo.
@@ -40,16 +37,12 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-stable,
       nixpkgs-566e53c2,
       home-manager,
       localhosts,
-      nixos-wsl,
       nix-flatpak,
-      nixos-hardware,
-      # nixgl,
       ...
     }@inputs:
     let
@@ -73,30 +66,6 @@
 
       # NixOS
       nixosConfigurations = {
-        # Desktop PC
-        leafsprite = nixpkgs.lib.nixosSystem rec {
-          inherit pkgs;
-          inherit system;
-          specialArgs = {
-            inherit pkgs-stable;
-            inherit pkgs-566e53c2;
-            inherit inputs;
-            inherit localhosts;
-          };
-          modules = [
-            nix-flatpak.nixosModules.nix-flatpak
-            ./hosts/leafsprite/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = specialArgs;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.simon = import ./hosts/leafsprite/home.nix;
-              home-manager.backupFileExtension = "bak";
-            }
-          ];
-        };
-
         # Laptop
         dustwraith = nixpkgs.lib.nixosSystem rec {
           inherit pkgs;
