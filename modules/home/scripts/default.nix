@@ -16,6 +16,7 @@
     })
     (import ./web-search.nix { inherit pkgs; })
     (import ./rofi-launcher.nix { inherit pkgs; })
+    (import ./rofi-window.nix { inherit pkgs; })
     (import ./screenshootin.nix { inherit pkgs; })
     (import ./screenshootin-active.nix { inherit pkgs; })
     (import ./update-hosts.nix { inherit pkgs; })

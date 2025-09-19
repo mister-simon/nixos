@@ -6,10 +6,10 @@
     ./fingerprint-reader.nix
     ./flatpak.nix
     ./fonts.nix
-    # ./greetd.nix
+    ./greetd.nix
     # ./gnome.nix
     # ./gnome-autologin.nix
-    ./sddm.nix
+    # ./sddm.nix
     ./hardware.nix
     ./kanata.nix
     ./network.nix

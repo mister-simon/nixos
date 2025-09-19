@@ -105,6 +105,7 @@ in
       # "$modifier,mouse_up,workspace, e-1"
 
       # Windows
+      "$modifier ALT,Tab,rofi-window"
       "ALT,Tab,cyclenext"
       "ALT,Tab,bringactivetotop"
 
