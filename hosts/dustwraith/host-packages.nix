@@ -41,6 +41,7 @@
       obsidian
       onlyoffice-bin
       vial
+      heroku
     ]);
 
   programs.zsh.enable = true;
