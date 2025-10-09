@@ -12,22 +12,68 @@ Example configs: https://github.com/jtroo/kanata/blob/main/cfg_samples/simple.kb
 )
 
 ;; https://github.com/jtroo/kanata/discussions/1455
+;; - Not using tap-hold-release-timeout to make mod timing feel more predictable
 (deftemplate charmod (char mod)
   (switch 
-    ((key-timing 3 less-than 250)) $char break
-    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+    ((key-timing 3 less-than 500)) $char break
+    () (tap-hold-release 0 500 $char $mod) break
   )
 )
 
+;; Qwerty
 (deflayermap (main)
   a (t! charmod a lctl)
   s (t! charmod s lmet)
   d (t! charmod d lalt)
   f (t! charmod f lsft)
+
+  ; (t! charmod ; lctl)
+  ;; l (t! charmod ; lmet)
+  ;; k (t! charmod l lalt)
+  j (t! charmod j lsft)
+
   caps (tap-hold 200 200 bspc (caps-word 2000))
-  ralt (tap-hold 200 200 ralt(layer-while-held arrows))
+  ralt (layer-while-held arrows)
 )
 
+;; Colemak
+(deflayermap (colemak)
+  caps (tap-hold 200 200 bspc (caps-word 2000))
+  ralt (layer-while-held arrows)
+
+  q q
+  w w
+  e f
+  r p
+  t b
+  y j
+  u l
+  i u
+  o y
+  p ;
+
+  a (t! charmod a lctl)
+  s (t! charmod r lmet)
+  d (t! charmod s lalt)
+  f (t! charmod t lsft)
+  g g
+  h m
+  j (t! charmod n lsft)
+  k (t! charmod e lalt)
+  l (t! charmod i lmet)
+  ; (t! charmod o lctl)
+
+  nubs z
+  z x
+  x c
+  c d
+  v v
+  b b
+  n k
+  m h
+)
+
+;; AltGR - Nav cluster
 (deflayermap (arrows)
   i pgup
   o up
@@ -37,4 +83,6 @@ Example configs: https://github.com/jtroo/kanata/blob/main/cfg_samples/simple.kb
   l down
   ; rght
   ' end
+  1 (layer-switch main)
+  2 (layer-switch colemak)
 )
