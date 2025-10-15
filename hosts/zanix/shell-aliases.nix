@@ -40,7 +40,7 @@
 
     # Homestead
     hs = ''
-      cd ~/work/homestead/$(basename $PWD) 2> /dev/null || cd ~/work/homestead 2> /dev/null || echo "Can't find homestead dir"
+      cd ~/code/homestead/$(basename $PWD) 2> /dev/null || cd ~/code/homestead 2> /dev/null || echo "Can't find homestead dir"
     '';
   };
 }
