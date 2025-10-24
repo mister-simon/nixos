@@ -76,29 +76,12 @@ in
         "fullscreen, tag:games*"
       ];
 
-      # HDMI-A-2 = D1
-      # HDMI-A-1 = D2
-      workspace = [
-        "1, name:main, monitor:HDMI-A-2, persistent:true"
-        "2, name:main-2, monitor:HDMI-A-1, persistent:true"
-
-        "4, name:mail, monitor:HDMI-A-2, persistent:true"
-        "5, name:mail-2, monitor:HDMI-A-1, persistent:true"
-
-        "7, name:fun, monitor:HDMI-A-2, persistent:true"
-        "8, name:fun-2, monitor:HDMI-A-1, persistent:true"
-
-        "3, name:spare, monitor:HDMI-A-2, persistent:true"
-        "6, name:spare-2, monitor:HDMI-A-1, persistent:true"
-
-        "9, name:spare-3, monitor:HDMI-A-2, persistent:true"
-        "10, name:spare-4, monitor:HDMI-A-1, persistent:true"
-      ];
+      workspace = [ ];
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
       ${extraMonitorSettings}
+      monitor=,preferred,auto,auto
     ";
   };
 }

@@ -5,8 +5,8 @@
 
   # Hyprland Settings
   extraMonitorSettings = ''
-    monitor=HDMI-A-1,1920x1080@60.0,1920x0,1.0
-    monitor=HDMI-A-2,1920x1080@60.0,0x0,1.0
+    monitor=HDMI-A-2,1920x1080@60.0,1920x0,1.0
+    monitor=HDMI-A-1,1920x1080@60.0,0x0,1.0
   '';
 
   # Waybar Settings
