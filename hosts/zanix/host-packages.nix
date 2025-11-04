@@ -13,6 +13,7 @@
       nodejs.pkgs.pnpm
       # tldr # Tealdeer added
       clock-rs
+      webcamoid
 
       # PHP
       php84
