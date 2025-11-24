@@ -37,6 +37,7 @@
       inkscape
       krita
       vscode
+      obsidian
     ]);
 
   programs.zsh.enable = true;
