@@ -9,11 +9,11 @@
       discord
       google-chrome
       gnome-software
-      nodejs
-      nodejs.pkgs.pnpm
       # tldr # Tealdeer added
       clock-rs
       webcamoid
+      vorta
+      localsend
 
       # PHP
       php84
@@ -38,6 +38,9 @@
       krita
       vscode
       obsidian
+
+      nodejs
+      nodejs.pkgs.pnpm
     ]);
 
   programs.zsh.enable = true;
