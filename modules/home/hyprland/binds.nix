@@ -30,6 +30,8 @@ in
       "$modifier,Q,killactive,"
       "$modifier,P,pseudo,"
       "$modifier,V,exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      "$modifier CONTROL,V,exec, cliphist list | rofi -dmenu | cliphist delete"
+      "$modifier CONTROL ALT,V,exec, cliphist wipe"
       "$modifier SHIFT,I,togglesplit,"
       "$modifier,F,fullscreen,"
       "$modifier SHIFT,F,togglefloating,"
