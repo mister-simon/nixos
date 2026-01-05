@@ -28,7 +28,7 @@
       ];
 
       # Optional: Automatically update Flatpaks when you run nixos-rebuild switch
-      update.onActivation = true;
+      # update.onActivation = true;
     };
   };
 

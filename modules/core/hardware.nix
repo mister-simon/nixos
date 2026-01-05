@@ -10,6 +10,7 @@
     logitech.wireless.enableGraphical = false;
     graphics.enable = true;
     enableRedistributableFirmware = true;
+    usb-modeswitch.enable = true;
     keyboard = {
       qmk.enable = true;
       zsa.enable = true;

@@ -149,7 +149,7 @@
         typst.enable = true;
         rust = {
           enable = true;
-          crates.enable = true;
+          crates-nvim.enable = true;
         };
       };
       visuals = {

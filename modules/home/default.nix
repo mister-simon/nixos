@@ -24,7 +24,7 @@ in
     ./hyprland
     ./kitty.nix
     ./lazygit.nix
-    ./nvf.nix
+    # ./nvf.nix
     ./obs-studio.nix
     ./rofi
     ./qt.nix

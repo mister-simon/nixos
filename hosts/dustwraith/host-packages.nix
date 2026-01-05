@@ -39,9 +39,11 @@
       krita
       vscode
       obsidian
-      onlyoffice-bin
+      devenv
+      onlyoffice-desktopeditors
       vial
       heroku
+      caddy
     ]);
 
   programs.zsh.enable = true;
